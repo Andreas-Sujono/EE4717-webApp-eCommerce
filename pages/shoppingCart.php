@@ -64,7 +64,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="4" class="subtotal-price">Subtotal Price: <span>$250</span></td>
+                                <td colspan="4" class="total-price">Total Price: <span>$250</span></td>
                                 <td><button class="checkout-btn"> Checkout </button></td>
                             </tr>   
                         </tfoot>

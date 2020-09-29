@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="cart">
-                <a href="#">
+                <a href="../pages/shoppingCart.php">
                     <img src="../images/cart.png" alt="cart"/>
                     <div>Cart</div>
                 </a>
