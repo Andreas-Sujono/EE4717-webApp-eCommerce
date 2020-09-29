@@ -4,10 +4,10 @@
             <img src="../images/logo-white.png"/>
         </div>
         <ul>
-            <li><a href="#">Laptop</a><li>
-            <li><a href="#">Phone</a><li>
-            <li><a href="#">Tablet</a><li>
-            <li><a href="#">Accessories</a><li>
+            <li><a href="../pages/category.php?productCategory=laptop">Laptop</a><li>
+            <li><a href="../pages/category.php?productCategory=phone">Phone</a><li>
+            <li><a href="../pages/category.php?productCategory=tablet">Tablet</a><li>
+            <li><a href="../pages/category.php?productCategory=accessories">Accessories</a><li>
         </ul>
         <div class="right-content">
             <div class="wishlist">
