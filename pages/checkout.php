@@ -9,11 +9,11 @@
 
     <body>
         <?php include '../components/nav.php' ?>
-            <div class="checkout-page">
+            <div class="checkout-page page">
                 <div class="title-container">
                     <h1>Checkout</h1>
                 </div>
-                <div class="checkout-content">
+                <div class="checkout-content content">
                     <div class="order-summary">
                         <h2>Order summary</h2>
                         <table class="order-summary-table">
@@ -64,7 +64,7 @@
                     
                 </div>
 
-                <div class="checkout-content">
+                <div class="checkout-content content">
                     <div class="customer-details">
                         <h2>Customer Details</h2>
                         <table class="customer-details-table">

@@ -1,36 +1,5 @@
-.shopping-cart-page{
-    background-color: whitesmoke;
-    padding-bottom: 50px;
-    min-height: calc(100vh - 310px);
-}
-
-.shopping-cart-page .title-container{
-    background-color: white;
-    height: 80px;
-    box-sizing: border-box;
-    display: flex; align-items: center;
-    padding-left: 20px;
-}
-
-.shopping-cart-page .title-container h1{
-    width: 100%;
-    max-width: 1200px;
-    margin:auto;
-    font-size: 26px;
-    font-weight: 600;
-    color: #333333;
-}
-
-.shopping-cart-page .table-container{
-    background-color: white;
-    width: 100%;
-    max-width: 1200px;
-    margin:auto;
-    padding: 20px;
+.page .content{
     padding-top: 30px;
-    padding-bottom: 40px;
-    margin-top: 20px;
-    box-sizing: border-box;
 }
 
 .shopping-cart-page table{

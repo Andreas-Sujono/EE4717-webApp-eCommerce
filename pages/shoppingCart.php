@@ -9,11 +9,11 @@
 
     <body>
         <?php include '../components/nav.php' ?>
-            <div class="shopping-cart-page">
+            <div class="shopping-cart-page page">
                 <div class="title-container">
                     <h1>Shopping cart</h1>
                 </div>
-                <div class="table-container">
+                <div class="table-container content">
                     <table>
                         <thead>
                             <tr>

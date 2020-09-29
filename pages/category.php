@@ -15,11 +15,11 @@
     <body>
         
         <?php include '../components/nav.php' ?>
-            <div class="category-page">
+            <div class="category-page page">
                 <div class="title-container">
                     <h1><?php echo ucfirst($productCategory); ?></h1>
                 </div>
-                <div class="category-content">
+                <div class="category-content content">
                     <div class="product-card">
                         <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa"/>
                         <div class="product-details">
