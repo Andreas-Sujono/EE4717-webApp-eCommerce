@@ -1,12 +1,15 @@
 footer{
     background-color: #F1F1F1;
     padding:20px 30px;
+    height: 200px;
+    box-sizing: border-box;
 }
 
 footer .footer-content{
     width: 100%;
     max-width: 1200px;
     margin:auto;
+    margin-top: 24px;
     display: flex;
     justify-content: space-between;
     line-height: 20px;

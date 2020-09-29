@@ -1,0 +1,95 @@
+.shopping-cart-page{
+    background-color: whitesmoke;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 310px);
+}
+
+.shopping-cart-page .title-container{
+    background-color: white;
+    height: 80px;
+    box-sizing: border-box;
+    display: flex; align-items: center;
+    padding-left: 20px;
+}
+
+.shopping-cart-page .title-container h1{
+    width: 100%;
+    max-width: 1200px;
+    margin:auto;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.shopping-cart-page .table-container{
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    margin:auto;
+    padding: 20px;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.shopping-cart-page table{
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+.shopping-cart-page table tr{
+    text-align: center;
+}
+
+.shopping-cart-page table thead{
+    background-color: #F4F4F4;
+}
+.shopping-cart-page table th{
+    padding: 10px 20px;
+    font-weight: 500;
+    color: #8A8A8A;
+}
+
+.shopping-cart-page table tr td{
+    padding:10px 20px;
+}
+
+.shopping-cart-page table .delete-btn, .shopping-cart-page table .checkout-btn{
+    width: 100px;
+    height: 30px;
+    border: 0;
+    border-radius: 8px;
+    color:white;
+    font-size: 16px;
+}
+
+.shopping-cart-page table .delete-btn{
+    background-color: #EE3232;
+}
+
+.shopping-cart-page table .checkout-btn{
+    background-color: #3DA300;
+    width: 150px;
+    height: 40px;
+}
+
+.shopping-cart-page table .product-col img{
+    width: 50px;
+    vertical-align: middle;
+    margin-right: 16px;
+}
+
+.shopping-cart-page table .subtotal-price{
+    text-align: right;
+    font-size: 24px;
+}
+.shopping-cart-page table .subtotal-price span{
+    font-weight: bold;
+}
+
+.shopping-cart-page table tfoot tr{
+    border-top: 1px solid lightgrey;
+}
+
+
