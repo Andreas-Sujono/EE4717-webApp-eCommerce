@@ -1,5 +1,5 @@
 footer{
-    background-color: #F1F1F1;
+    background-color: #ECEBEB;
     padding:20px 30px;
     height: 200px;
     box-sizing: border-box;
@@ -24,6 +24,7 @@ footer .footer-left-content>div:first-child, footer .footer-content .footer-righ
 footer .footer-left-content >div:nth-child(2){
     margin-bottom: 4px;
 }
+
 footer .footer-right-content .social-media{
     display: flex;
     justify-content: flex-end;

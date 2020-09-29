@@ -2,15 +2,15 @@
     <div class="footer-content">
         <div class="footer-left-content">
             <div>Contact Us</div>
-            <div>Email: hr@techworld.com</div>
+            <div>Email: <a href="mailto:hr@techworld.com">hr@techworld.com</a></div>
             <div>Phone:+65 83066472</div>
         </div>
         <div class="footer-right-content">
             <div>Followed us on social media</div>
             <div class="social-media">
-                <img src="https://1.bp.blogspot.com/-WSdqH3gMHDk/U-xndvvQYrI/AAAAAAAABwg/9OLHbIjiTF8/s1600/facebook%2Blogo%2Bpng%2Btransparent%2Bbackground.png" alt="facebook"/>
-                <img src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202090instagramlogosocialsocialmedia-115598_115703.png" alt="instagram"/>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg7idOhj6gteHXKVTDAr7UOAFMOENKisfx9g&usqp=CAU" alt="linkedin"/>
+                <a href="https://www.facebook.com/" target="__blank"><img src="https://1.bp.blogspot.com/-WSdqH3gMHDk/U-xndvvQYrI/AAAAAAAABwg/9OLHbIjiTF8/s1600/facebook%2Blogo%2Bpng%2Btransparent%2Bbackground.png" alt="facebook"/></a>
+                <a href="https://www.instagram.com/" target="__blank"><img src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202090instagramlogosocialsocialmedia-115598_115703.png" alt="instagram"/></a>
+                <a href="https://www.linkedin.com/" target="__blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg7idOhj6gteHXKVTDAr7UOAFMOENKisfx9g&usqp=CAU" alt="linkedin"/></a>
             </div>
         </div>
     </div>

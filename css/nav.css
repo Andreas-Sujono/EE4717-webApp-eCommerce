@@ -37,6 +37,12 @@ nav .right-content{
     display: flex;
     gap:30px;
 }
+nav a{
+    color: white;
+}
+nav a:hover{
+    color: rgb(184, 184, 184);
+}
 
 nav .right-content img{
     width: 24px;

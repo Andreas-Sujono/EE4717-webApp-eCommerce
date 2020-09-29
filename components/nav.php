@@ -4,23 +4,29 @@
             <img src="../images/logo-white.png"/>
         </div>
         <ul>
-            <li>Laptop<li>
-            <li>Phone<li>
-            <li>Tablet<li>
-            <li>Accessories<li>
+            <li><a href="#">Laptop</a><li>
+            <li><a href="#">Phone</a><li>
+            <li><a href="#">Tablet</a><li>
+            <li><a href="#">Accessories</a><li>
         </ul>
         <div class="right-content">
             <div class="wishlist">
-                <img src="../images/wishlist.png" alt="wishlist"/>
-                <div>Wishlist</div>
+                <a href="#">
+                    <img src="../images/wishlist.png" alt="wishlist"/>
+                    <div>Wishlist</div>
+                </a>
             </div>
             <div class="cart">
-                <img src="../images/cart.png" alt="cart"/>
-                <div>Cart</div>
+                <a href="#">
+                    <img src="../images/cart.png" alt="cart"/>
+                    <div>Cart</div>
+                </a>
             </div>
             <div class="account">
-                <img src="../images/account.png" alt="account"/>
-                <div>Account</div>
+                <a href="#">
+                    <img src="../images/account.png" alt="account"/>
+                    <div>Account</div>
+                </a>
             </div>
         </div>
     </div>

@@ -27,6 +27,7 @@
     max-width: 1200px;
     margin:auto;
     padding: 20px;
+    padding-top: 30px;
     padding-bottom: 40px;
     margin-top: 20px;
     box-sizing: border-box;
@@ -90,6 +91,8 @@
 
 .shopping-cart-page table tfoot tr{
     border-top: 1px solid lightgrey;
+    height: 80px;
+    padding-top: 30px;
 }
 
 
