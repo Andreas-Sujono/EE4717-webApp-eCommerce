@@ -1,7 +1,9 @@
 <nav>
     <div class="nav-content">
         <div class="logo">
-            <img src="../images/logo-white.png"/>
+            <a href="../pages/index.php">
+                <img src="../images/logo-white.png"/>
+            </a>
         </div>
         <ul>
             <li><a href="../pages/category.php?productCategory=laptop">Laptop</a><li>
@@ -11,7 +13,7 @@
         </ul>
         <div class="right-content">
             <div class="wishlist">
-                <a href="#">
+                <a href="../pages/wishlist.php">
                     <img src="../images/wishlist.png" alt="wishlist"/>
                     <div>Wishlist</div>
                 </a>

@@ -1,0 +1,29 @@
+.product__image {
+    width: 18rem;
+    height: 18rem;
+}
+.product__image img {
+    width:100%;
+}
+.product-name{
+    font-size: 22px;
+}
+.content{
+    padding-top:20px;
+}
+.wishlist{
+
+    cursor: pointer;
+}
+.selected {
+    fill: #bd2130;
+    display: none;
+}
+.information .table{
+    width:50%;
+}
+
+.information__heading {
+    padding: 4px;
+    background-color: #c6d4a9;
+}

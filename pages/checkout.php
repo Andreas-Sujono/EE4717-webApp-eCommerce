@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Checkout</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/index.css"/>
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
@@ -109,6 +110,50 @@
                                 </td>
                             </tr>
                         </table>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#success">
+                            Launch payment successful
+                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unsuccess">
+                            Launch payment unsuccessful
+                        </button>
+                        <div class="modal fade" id="success" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="width:75%;">
+                                    
+                                    <div class="modal-body">
+                                        <h3 class="text-center">Payment successful</h3>
+                                            <div class="text-center p-3">
+                                                <img width="100" height="100" src="../images/successful.png" alt="">
+                                            </div>
+                                       
+                                        <p class="text-center mr-auto ml-auto" style="width: 20em;">We have sent you the order confirmation to your email</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="unsuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="width:75%;" >
+                                    
+                                    <div class="modal-body">
+                                        <h3 class="text-center">Payment unsuccessful</h3>
+                                            <div class="text-center p-3">
+                                                <img width="100" height="100" src="../images/cross.png" alt="">
+                                            </div>
+                                       
+                                        <p class="text-center mr-auto ml-auto" style="width: 20em;">There's something wrong with the payment, please try again!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
