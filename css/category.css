@@ -9,9 +9,9 @@
     width: 100%;
     height: 1px;
 }
-.category-page .category-content .product-card img{
+.category-page .category-content .product-card .product-link img{
     display: block;
-    width: 20%;
+    width: 100%;
     max-width: 180px;
 }
 .category-page .category-content .product-details{

@@ -5,7 +5,7 @@
 
     <body>
         <h1>Homepage</h1>
-        <a href="./pages/shoppingCart.php">Shopping cart</a>
+        <a href="./pages/index.php">Go to website</a>
     </body>
 
 </html>
