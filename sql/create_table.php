@@ -12,13 +12,13 @@ if (!$conn) {
 }
 
 /* comment necessary code below if you have run this cript before */
-$sql = "CREATE TABLE Account (
+$sql = "CREATE TABLE `Account` (
     accountId int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     username varchar(64) NOT NULL UNIQUE,
     password varchar(64) NOT NULL
 );";
 
-$sql .= "CREATE TABLE CustomerDetails (
+$sql .= "CREATE TABLE `CustomerDetails` (
     custId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     accountId int UNSIGNED,
     fullName varchar(128),
@@ -29,7 +29,7 @@ $sql .= "CREATE TABLE CustomerDetails (
         REFERENCES Account(accountId)
 );";
 
-$sql .= "CREATE TABLE Product (
+$sql .= "CREATE TABLE `Product` (
     productId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name varchar(64),
     price float(16,2),
@@ -41,7 +41,7 @@ $sql .= "CREATE TABLE Product (
     bestSellingProduct boolean
 );";
 
-$sql .= "CREATE TABLE Wishlist (
+$sql .= "CREATE TABLE `Wishlist` (
     wishlistId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     custId int UNSIGNED,
     productId int UNSIGNED,
@@ -51,23 +51,24 @@ $sql .= "CREATE TABLE Wishlist (
         REFERENCES Product(productId)
 );";
 
-$sql .= "CREATE TABLE Order (
+/* status = 0 for in cart, 1 if paid */
+$sql .= "CREATE TABLE `Order` (
     orderId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    status int, /* 0 for in cart, 1 if paid */
+    status int, 
     custId int UNSIGNED,
     purchasedDate date,
     totalAmount float(16,2),
     FOREIGN KEY (custId)
-        REFERENCES CustomerDetails(custId),
+        REFERENCES CustomerDetails(custId)
 );";
 
-$sql .= "CREATE TABLE OrderItems (
+$sql .= "CREATE TABLE `OrderItems` (
     orderItemsId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     orderId int UNSIGNED,
     productId int UNSIGNED,
     quantity int,
     FOREIGN KEY (orderId)
-        REFERENCES Order(orderId),
+        REFERENCES `Order`(orderId),
     FOREIGN KEY (productId)
         REFERENCES Product(productId)
 );";
