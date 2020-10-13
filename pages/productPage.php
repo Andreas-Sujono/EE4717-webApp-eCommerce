@@ -1,12 +1,12 @@
 <html>
     <head>
         <title>Product Information</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <link rel="stylesheet" href="../css/product_page.css"/>
         <link rel="stylesheet" href="../css/index.css"/>
         <link rel="stylesheet" href="../css/category.css"/>
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
-        <link rel="stylesheet" href="../css/product_page.css"/>
+        
         <script>
             function select(){
                 document.getElementById('selected').style.display='block';
@@ -24,20 +24,20 @@
     <body>
         <?php include '../components/nav.php' ?>
             <div class="container content">
-                <div class="product d-flex flex-row justify-content-around">
+                <div class="product flex-row justify-content-around">
                     <div class="product__image">
                         <img src="../images/laptop1.jpg" alt="..." />
                     </div>
                     <div class="product__briefinfo">
-                        <div class="product-name mb-2">Product Name 1</div>
-                        <div class="product-rating mb-2">4.0</div>
-                        <div class="product-price mb-2">$250</div>
-                        <div class="product-quantity mb-2">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" >Quantity</label>
-                                </div>
-                                <input type="number" min=0 class="form-control" placeholder="" >
+                        <div class="product-name">Product Name 1</div>
+                        <div class="product-rating">4.0</div>
+                        <div class="product-price">$250</div>
+                        <div class="product-quantity">
+                            <div class="flex-row" style="align-items: center;">
+                                <label class="input-group-text" style="margin-right:5px">Quantity</label>
+                                <input type="text" id="count" value="0" class="count" onchange="setLimit(this.value, this)" style="margin-right:5px"/>
+                                <div class="upcount" id="upcount" onclick="increase()" style="margin-right:5px"><button>+</button></div>
+                                <div class="downcount" id="downcount" onclick="decrease()" style="margin-right:5px"><button>-</button></div>
                             </div>
                         </div>
                         <div class="buttons mb-2">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="information">
                     <div class="information__heading">Product Specifications</div>
-                    <table class="table table-borderless">
+                    <table class="table">
                         <tbody>
                             <tr>
                             <td>Standing screen display size</td>
@@ -82,13 +82,13 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="information__heading mb-3">Product Descriptions</div>
+                    <div class="information__heading">Product Descriptions</div>
                     <div class="information__description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mollis ligula eu leo fringilla, ut imperdiet diam consequat. Praesent neque metus, mattis vel dui vel, vehicula euismod erat. Mauris vel ante sit amet magna ultrices egestas. Morbi nec rhoncus magna. Nullam in dictum augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque arcu eros, mollis nec ligula in, porta malesuada ipsum. Vestibulum tincidunt laoreet aliquet. Nunc sed tortor ut nulla hendrerit gravida non vel felis. Donec auctor urna metus, sit amet gravida sapien sodales non. Nam nec viverra ligula, non vestibulum felis. Praesent facilisis cursus tortor et condimentum. Nullam ullamcorper felis in tortor vestibulum porta. Vivamus vulputate odio at diam ultrices mattis. Mauris et pulvinar ipsum. Suspendisse sagittis, risus non tincidunt rutrum, ipsum nisl elementum augue, eget consequat turpis nibh et nisi.
                     </div>
                 </div>
             </div>
-            
+            <script src="../js/index.js" ></script>
         <?php include '../components/footer.php' ?>
     </body>
 
