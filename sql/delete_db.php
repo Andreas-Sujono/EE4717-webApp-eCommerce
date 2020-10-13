@@ -14,7 +14,7 @@ if (!$conn) {
 $sql = "DROP DATABASE techWorld;";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Database and tables are created successfully";
+    echo "Database and tables are deleted successfully";
 } else {
     echo "Error creating database: " . mysqli_error($conn);
 }
