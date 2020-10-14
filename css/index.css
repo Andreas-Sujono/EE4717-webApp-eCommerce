@@ -8,8 +8,10 @@
 }
 .container{
     width:80%;
-    margin-left:auto;
-    margin-right:auto;
+    max-width: 1200px;
+    min-width: 800px;
+    margin:auto;
+    padding-bottom: 100px;
 }
 
 button, .icon{
@@ -50,6 +52,7 @@ a:hover{
     background-color: white;
     width: 100%;
     max-width: 1200px;
+    min-width: 800px;
     margin:auto;
     padding: 20px;
     padding-bottom: 40px;
@@ -65,7 +68,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width:100%;
   position: relative;
   margin: auto;
 }
@@ -92,8 +95,8 @@ img {vertical-align: middle;}
 
 /* The dots/bullets/indicators */
 .dot {
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -135,8 +138,8 @@ img {vertical-align: middle;}
     text-align: center;
 }
 .display{
-    font-size: 3em;
-    font-weight: 300;
+    font-size: 32px;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -157,8 +160,8 @@ img {vertical-align: middle;}
 }
 .heading{
     padding-bottom:0.4em;
-    margin-bottom: 0.6em;
-    margin-top:0.6em;
+    margin-bottom: 50px;
+    margin-top:40px;
 }
 .card {
     position: relative;
@@ -172,11 +175,14 @@ img {vertical-align: middle;}
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-    padding:5px;
+    padding:24px 6px;
 }
 .card-img, .card-img-top {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
+    max-width: 80%;
+    max-height: 196px ;
+    margin:auto;
 }
 .card-body {
     -ms-flex: 1 1 auto;
@@ -249,3 +255,30 @@ img {vertical-align: middle;}
 button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-appearance: button;
 }
+
+
+.card .cart-button{
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.card .item-price{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.homepage-title-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homepage-title-container > hr{
+   width: 35%;
+   height: 1px;
+}
+
+.homepage-title-container > h1{
+    width: 30%;
+ }

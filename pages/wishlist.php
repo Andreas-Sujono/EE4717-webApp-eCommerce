@@ -24,7 +24,7 @@
                                 <div class="product-name">Product Name 1</div>
                             </a>
                             <div class="product-rating">4.0</div>
-                            <div class="product-price">$250</div>
+                            <div class="product-price" style="margin-top:20px">$250</div>
                         </div>
                         <button type="button" class="btn btn-danger">Remove Item</button>
                     </div>
@@ -38,7 +38,7 @@
                                 <div class="product-name">Product Name 1</div>
                             </a>
                             <div class="product-rating">4.0</div>
-                            <div class="product-price">$250</div>
+                            <div class="product-price" style="margin-top:20px">$250</div>
                         </div>
                         <button type="button" class="btn btn-danger">Remove Item</button>
                     </div>
@@ -52,7 +52,7 @@
                                 <div class="product-name">Product Name 1</div>
                             </a>
                             <div class="product-rating">4.0</div>
-                            <div class="product-price">$250</div>
+                            <div class="product-price" style="margin-top:20px">$250</div>
                         </div>
                         <button type="button" class="btn btn-danger">Remove Item</button>
                     </div>

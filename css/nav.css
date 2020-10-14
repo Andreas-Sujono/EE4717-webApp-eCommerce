@@ -23,6 +23,7 @@ nav .logo img{
 nav ul {
     display: flex;
     gap:30px;
+    margin:0 !important;
 }
 nav ul li {
     font-size: 18px;

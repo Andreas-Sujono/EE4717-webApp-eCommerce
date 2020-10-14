@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>Product Information</title>
-        <link rel="stylesheet" href="../css/product_page.css"/>
         <link rel="stylesheet" href="../css/index.css"/>
+        <link rel="stylesheet" href="../css/productPage.css"/>
         <link rel="stylesheet" href="../css/category.css"/>
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
@@ -34,17 +34,19 @@
                         <div class="product-price">$250</div>
                         <div class="product-quantity">
                             <div class="flex-row" style="align-items: center;">
-                                <label class="input-group-text" style="margin-right:5px">Quantity</label>
-                                <input type="text" id="count" value="0" class="count" onchange="setLimit(this.value, this)" style="margin-right:5px"/>
-                                <div class="upcount" id="upcount" onclick="increase()" style="margin-right:5px"><button>+</button></div>
-                                <div class="downcount" id="downcount" onclick="decrease()" style="margin-right:5px"><button>-</button></div>
+                                <label class="input-group-text">Quantity</label>
+                                <input type="number" id="count" value="0" min="0" class="count" onchange="setLimit(this.value, this)" style="margin-right:5px" />
+                                <div>
+                                    <div class="upcount" id="upcount" onclick="increase()"><button>+</button></div>
+                                    <div class="downcount" id="downcount" onclick="decrease()"><button>-</button></div>
+                                </div>
                             </div>
                         </div>
                         <div class="buttons mb-2">
                             <button type="button" class="btn btn-outline-primary">Add to cart</button>
                             <button type="button" class="btn btn-outline-success">Buy Now</button>
                         </div>
-                        <div class="wishlist d-flex flex-row">
+                        <div class="wishlist flex-row">
                             <svg onclick="select()" id="not-selected" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg>
                             <svg onclick="unselect()" id="selected" class="selected " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>
                             <span id="wishlist__text" class="ml-2">Add to Wishlist</span>
