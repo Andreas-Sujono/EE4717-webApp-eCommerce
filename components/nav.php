@@ -18,8 +18,18 @@
            if ($result->num_rows >0 ) //if login is successfull
             {
                 $row = $result->fetch_assoc();
+                $accountId = $row['accountId'];   
+                
                 $_SESSION['username'] = $username;    
-                $_SESSION['accountId'] = $row['accountId'];    
+                $_SESSION['accountId'] = $accountId;
+
+                $query = 'SELECT * from CustomerDetails '
+                ."WHERE accountId='$accountId'";
+                $result = $conn->query($query);
+                $row = $result->fetch_assoc();
+                $custId = $row['custId']; 
+                
+                $_SESSION['custId'] = $custId;
             }
             else{ //if login is failed
                 $errorMessage = 'Invalid username or password';
@@ -75,6 +85,14 @@
                 //register a session here
                 $_SESSION['username'] = $username;    
                 $_SESSION['accountId'] = $accountId;    
+
+                $query = 'SELECT * from CustomerDetails '
+                ."WHERE accountId='$accountId'";
+                $result = $conn->query($query);
+                $row = $result->fetch_assoc();
+                $custId = $row['custId']; 
+                
+                $_SESSION['custId'] = $custId;
             }
             
         }

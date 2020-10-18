@@ -8,7 +8,11 @@
     </head>
 
     <body>
-        <?php include '../components/nav.php' ?>
+        <?php 
+            include '../components/nav.php';
+            include '../php/connect.php';
+
+        ?>
             <div class="shopping-cart-page page">
                 <div class="title-container">
                     <h1>Shopping cart</h1>
