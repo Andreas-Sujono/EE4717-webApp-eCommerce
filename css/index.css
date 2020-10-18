@@ -358,3 +358,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
 }
 .modal .modal-body {
 }
+
+.rating-star{
+    width: 24px;
+}

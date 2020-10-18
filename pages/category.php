@@ -30,6 +30,8 @@
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
+                                $rating = $row['rating'] ;
+                                
                                 echo '
                                 <div class="product-card">
                                     <a href="../pages/productPage.php?productId='. $row['productId']. '" class="product-link">
@@ -39,7 +41,11 @@
                                         <a href="../pages/productPage.php?productId='. $row['productId']. '" class="product-link">
                                             <div class="product-name">'. $row['name'] .'</div>
                                         </a>
-                                        <div class="product-rating">'. $row['rating'] .'</div>
+                                        <div class="product-rating">
+                                ';
+                                include '../components/rating.php';
+                                echo '
+                                </div>
                                         <div class="product-desc">
                                         '. substr($row['description'], 0, 150) .'...
                                         </div>
