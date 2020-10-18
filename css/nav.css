@@ -59,7 +59,7 @@ nav .account{
 
 nav .account-dropdown{
     position: absolute;
-    top: 50px;
+    top: 51.5px;
     right:0;
     background-color: white;
     color:black;
@@ -69,6 +69,7 @@ nav .account-dropdown{
     overflow: hidden;
     text-align: center;
     transition: all 0.3s;
+    border:1px solid lightgrey;
 }
 
 nav .account-dropdown ul li hr{

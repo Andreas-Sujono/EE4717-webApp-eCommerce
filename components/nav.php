@@ -25,10 +25,10 @@
                 </a>
             </div>
             <div class="account">
-                <div class="account-btn">
+                <a href="#" class="account-btn">
                     <img src="../images/account.png" alt="account"/>
                     <div>Account</div>
-                </div>
+                </a>
                 <div class="account-dropdown" style="height: 0; padding: 0;">
                     <ul>
                         <li class="modal-open-btn" data-target="login-modal">Login <hr/></li>
@@ -63,7 +63,9 @@
                     </div>
                     <button>Sign In</button>
                 </form>
-                <!-- <small>Don't have an account? Register <span>here</span></small> -->
+                <small>Don't have an account? Register <span
+                    onclick="triggerModalById('signup-modal')"
+                >here</span></small>
             </div>
         </div>
     </div>
@@ -114,13 +116,7 @@
                     </div>
                     <button>Sign Up</button>
                 </form>
-                <!-- <small>Already have an account? <span onclick="function x(){
-                        const event = new Event('custom-click');
-                        let loginModal = document.getElementById('login-modal')
-                        loginModal.dispatchEvent(event);
-                    }; 
-                    x();
-                ">Sign In here</span></small> -->
+                <small>Already have an account? <span onclick="triggerModalById('login-modal')">Sign In here</span></small>
             </div>
         </div>
     </div>
