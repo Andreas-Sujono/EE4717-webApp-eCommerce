@@ -1,25 +1,37 @@
-// Get the modal
-var modal = document.getElementById("modal");
-
 // Get the button that opens the modal
-var btn = document.querySelector(".modal-open-btn");
+var btns = document.querySelectorAll(".modal-open-btn");
 
-// Get the <span> element that closes the modal
-var span = document.querySelector("#modal .close")
+let currentModal;
+for(let i = 0 ; i < btns.length; i++){
+  let btn = btns[i]
+  let targetId = btn.getAttribute('data-target')
+  let modal =  document.getElementById(targetId) 
+  // let modalBody = document.querySelector(`#${targetId} .modal-content`)
+  var span = document.querySelector(`#${targetId} .close`)
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+  // When the user clicks the button, open the modal 
+  btn.addEventListener('click', function() {
+    if(currentModal){ //make sure only 1 modal is active
+      currentModal.style.display = "none";
+    }
+    modal.style.display = "block";
+    currentModal = modal
+  })
+  
+  // btn.addEventListener('custom-click', function() {
+  //   if(currentModal){ //make sure only 1 modal is active
+  //     currentModal.style.display = "none";
+  //   }
+  //   modal.style.display = "block";
+  //   currentModal = modal
+  // })
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
     modal.style.display = "none";
+    currentModal = null
   }
+
 }
+

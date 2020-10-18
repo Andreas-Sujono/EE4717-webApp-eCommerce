@@ -302,7 +302,13 @@ button, [type="button"], [type="reset"], [type="submit"] {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
   
-  /* Modal Content */
+
+
+/* Modal Content */
+
+.modal{
+    background-color: rgba(189, 189, 189, 0.6);
+}
 .modal-content {
     position: relative;
     background-color: #fefefe;
@@ -314,7 +320,8 @@ button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    z-index:10
 }
   
 /* Add Animation */
@@ -330,29 +337,24 @@ button, [type="button"], [type="reset"], [type="submit"] {
 
 /* The Close Button */
 .modal .close {
-    color: white;
+    color: rgb(212, 3, 3);
     float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-  
-.modal .close:hover,
-.modal .close:focus {
-    color: #000;
+    font-size: 36px;
+    margin-top: -10px;
     text-decoration: none;
     cursor: pointer;
 }
-  
-.modal .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+.modal .close:hover {
+    color: rgb(145, 3, 3);
 }
   
-.modal .modal-body {padding: 2px 16px;}
-  
-.modal .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+.modal .modal-content{
+    width: 80%;
+    margin:auto;
+    min-width: 300px;
+    max-width: 600px;    
+    padding: 24px; 
+    color: black;
+}
+.modal .modal-body {
 }

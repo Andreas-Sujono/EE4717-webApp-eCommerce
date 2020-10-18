@@ -25,30 +25,106 @@
                 </a>
             </div>
             <div class="account">
-                <a href="#">
+                <div class="account-btn">
                     <img src="../images/account.png" alt="account"/>
                     <div>Account</div>
-                </a>
+                </div>
+                <div class="account-dropdown" style="height: 0; padding: 0;">
+                    <ul>
+                        <li class="modal-open-btn" data-target="login-modal">Login <hr/></li>
+                        <li class="modal-open-btn" data-target="signup-modal">Signup</li>
+                    <ul>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- login Modal -->
-    <div id="modal" class="modal">
+    <div id="login-modal" class="login-modal modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Modal Header</h2>
-            </div>
+            <span class="close">&times;</span>
             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+                <h1>Login</h1>
+                <form>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            name="username"
+                            placeholder="Username"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <input 
+                            type="password" 
+                            name="password"
+                            placeholder="Password"
+                        />
+                    </div>
+                    <button>Sign In</button>
+                </form>
+                <!-- <small>Don't have an account? Register <span>here</span></small> -->
             </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+
+    <!-- login Modal -->
+    <div id="signup-modal" class="signup-modal modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h1>Sign Up</h1>
+                <form>
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            name="email"
+                            placeholder="Email"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            name="username"
+                            placeholder="Username"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <input 
+                            type="date" 
+                            name="dateOfBirth"
+                            placeholder="Date of Birth"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <input 
+                            type="password" 
+                            name="password"
+                            placeholder="Password"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <input 
+                            type="password" 
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                        />
+                    </div>
+                    <button>Sign Up</button>
+                </form>
+                <!-- <small>Already have an account? <span onclick="function x(){
+                        const event = new Event('custom-click');
+                        let loginModal = document.getElementById('login-modal')
+                        loginModal.dispatchEvent(event);
+                    }; 
+                    x();
+                ">Sign In here</span></small> -->
             </div>
         </div>
     </div>
     
+    <script src="../js/modal.js"></script>
+    <script src="../js/nav.js"></script>
 </nav>
