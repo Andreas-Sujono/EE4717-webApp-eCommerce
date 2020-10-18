@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <?php include '../components/nav.php' ?>
+        <?php include '../components/nav.php'; ?>
         <div class="container">
 
             <div class="slideshow-container">

@@ -122,3 +122,6 @@ nav .modal .modal-body small span{
     color: #40A3FF;
     cursor: pointer;
 }
+nav .error-message{
+    color: red;
+}

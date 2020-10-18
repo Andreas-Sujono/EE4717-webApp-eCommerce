@@ -12,13 +12,13 @@ if (!$conn) {
 }
 
 /* comment necessary code below if you have run this cript before */
-$sql = "SELECT * FROM `Product` WHERE category='laptop';";
-$result = $conn->query($sql);
-echo $result->num_rows;
+$query3 = "INSERT INTO `CustomerDetails` (accountId, fullName, email, phoneNumber, dateOfBirth)
+VALUES ( 1, 'test, 'test', 'test' , '2020-10-01' )";
 
-for ($i=0; $i <$result->num_rows; $i++) {
-    $row = $result->fetch_assoc();
-    echo $row;
- }
+$query = "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth)
+VALUES ( 1, 'test', 'test@gmail.com', 'test', '2020-10-01');";
+
+$result = $conn->query($query3);
+
 mysqli_close($conn);
 ?>

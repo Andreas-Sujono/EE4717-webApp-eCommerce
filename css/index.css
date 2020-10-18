@@ -111,10 +111,10 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
   position:relative;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: .5s;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
 }
@@ -292,7 +292,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 150px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
