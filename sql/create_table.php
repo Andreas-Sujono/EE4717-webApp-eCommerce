@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "f32ee";
 $password = "f32ee";
-$dbname = "techWorld";
+$dbname = "f32ee";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -31,12 +31,13 @@ $sql .= "CREATE TABLE `CustomerDetails` (
 
 $sql .= "CREATE TABLE `Product` (
     productId int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name varchar(64),
+    name varchar(256),
     price float(16,2),
     category varchar(64),
     rating float,
     stock int,
     description TEXT,
+    specification TEXT,
     image varchar(255),
     bestSellingProduct boolean
 );";

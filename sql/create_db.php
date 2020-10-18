@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 /* comment necessary code below if you have run this cript before */
-$sql = "CREATE DATABASE techWorld;";
+$sql = "CREATE DATABASE f32ee;";
 
 if (mysqli_query($conn, $sql)) {
     echo "Database and tables are created successfully";

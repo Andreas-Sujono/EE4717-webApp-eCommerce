@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 /* comment necessary code below if you have run this cript before */
-$sql = "DROP DATABASE techWorld;";
+$sql = "DROP DATABASE f32ee;";
 
 if (mysqli_query($conn, $sql)) {
     echo "Database and tables are deleted successfully";

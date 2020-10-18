@@ -37,3 +37,4 @@ function decrease() {
   let element = document.getElementById('count');
   element.value = parseInt(element.value) - 1 < 0 ? 0 : parseInt(element.value) - 1;
 }
+
