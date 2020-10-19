@@ -174,7 +174,7 @@
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo $_POST['type'] == 'login' ? $prev_username : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $prev_username : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -183,11 +183,11 @@
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo $_POST['type'] == 'login' ? $prev_password : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $prev_password : '' ?>"
                         />
                     </div>
                     <input type="hidden" name="type" value="login"/>
-                    <div class="error-message"><?php echo $_POST['type'] == 'login' ? $errorMessage : '' ?></div>
+                    <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'login' ? $errorMessage : '' ?></div>
                     <button>Sign In</button>
                 </form>
                 <small>Don't have an account? Register <span
@@ -212,7 +212,7 @@
                             name="fullName"
                             placeholder="Full Name"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ? $prev_fullName : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_fullName : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -221,7 +221,7 @@
                             name="email"
                             placeholder="Email"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ?  $prev_email : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $prev_email : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -230,7 +230,7 @@
                             name="username"
                             placeholder="Username"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ?  $prev_username : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ?  $prev_username : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -239,7 +239,7 @@
                             name="dateOfBirth"
                             placeholder="Date of Birth"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ? $prev_dateOfBirth : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_dateOfBirth : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -248,7 +248,7 @@
                             name="password"
                             placeholder="Password"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ? $prev_password : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_password : '' ?>"
                         />
                     </div>
                     <div class="input-group">
@@ -257,11 +257,11 @@
                             name="confirmPassword"
                             placeholder="Confirm Password"
                             required
-                            value="<?php echo $_POST['type'] == 'signup' ? $prev_confirmPassword : '' ?>"
+                            value="<?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $prev_confirmPassword : '' ?>"
                         />
                     </div>
                     <input type="hidden" name="type" value="signup"/>
-                    <div class="error-message"><?php echo $_POST['type'] == 'signup' ? $errorMessage : '' ?></div>
+                    <div class="error-message"><?php echo isset($_POST['type']) && $_POST['type'] == 'signup' ? $errorMessage : '' ?></div>
                     <button>Sign Up</button>
                 </form>
                 <small>Already have an account? <span onclick="triggerModalById('login-modal')">Sign In here</span></small>
