@@ -19,16 +19,3 @@ window.addEventListener('click', function(event) {
         dropdown.style.padding = '0'
     }
 })
-
-function triggerModalById(id){
-    var btns = document.querySelectorAll(".modal-open-btn");
-    for(let i = 0 ; i < btns.length; i++){
-        let btn = btns[i]
-        let targetId = btn.getAttribute('data-target')
-        let modal =  document.getElementById(targetId)       
-
-        modal.style.display = "none";
-    }
-    let modal =  document.getElementById(id) 
-    modal.style.display = "block";
-}
