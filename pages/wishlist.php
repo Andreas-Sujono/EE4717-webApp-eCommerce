@@ -10,6 +10,7 @@
 
     <body>      
         <?php 
+            include('../php/authorizedPage.php');
             include('../components/nav.php');
         ?>
         

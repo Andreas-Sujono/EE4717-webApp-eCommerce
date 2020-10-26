@@ -11,7 +11,7 @@
     max-width: 1200px;
     min-width: 800px;
     margin:auto;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 button, .icon{
@@ -154,6 +154,10 @@ img {vertical-align: middle;}
 .justify-content-around {
     -ms-flex-pack: distribute!important;
     justify-content: space-around!important;
+}
+.justify-content-between {
+    -ms-flex-pack: distribute!important;
+    justify-content: space-between!important;
 }
 .border-bottom {
     border-bottom: 1px solid #dee2e6!important;
@@ -365,14 +369,22 @@ button, [type="button"], [type="reset"], [type="submit"] {
     padding: 24px; 
     color: black;
 }
-<<<<<<< HEAD
-.modal .modal-body {
-}
-=======
-/* .modal .modal-body {
-} */
->>>>>>> 389e5d55aa4135e662ca35db853308e2a877c33a
 
 .rating-star{
     width: 24px;
+}
+
+.index-product .product-price{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.index-product .wishlist-button{
+    margin-top: 8px;
+}
+
+.wishlist-button{
+    border: 1px solid orange;
+    color: orange;
 }

@@ -76,7 +76,7 @@
                                 <h5 class="card-title"> '.$row['name'].' </h5>
                                 </a>
                                 <div>
-                                    <p class="card-text">$'.$row['price'].'</p>
+                                    <p class="card-text product-price">$'.$row['price'].'</p>
                                     <form method="post">
                                         <input type="hidden" value="'.$row['productId'].'" name="id" />
                                         <input type="hidden" value="cart" name="type" />
@@ -85,7 +85,7 @@
                                     <form method="post">
                                         <input type="hidden" value="'.$row['productId'].'" name="id" />
                                         <input type="hidden" value="list" name="type" />
-                                        <input type="submit" class="btn btn-outline-warning btn-block" value="Add to wishlist"/>
+                                        <input type="submit" class="btn btn-outline-warning btn-block wishlist-button" value="Add to wishlist"/>
                                     </form>
                                 </div>
                             </div>

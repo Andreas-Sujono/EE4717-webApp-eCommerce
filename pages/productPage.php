@@ -36,7 +36,7 @@
             
         ?>
             <div class="container content">
-                <div class="flex-row justify-content-around">
+                <div class="flex-row justify-content-between">
                     <div class="product__image">
                         <img src="<?php echo $row['image']; ?>" alt="..." />
                     </div>
@@ -50,7 +50,7 @@
                             <div class="flex-row" style="align-items: center;">
 
                                 <label class="input-group-text" style="margin-right:5px">Quantity</label>
-                                <input type="text" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
+                                <input type="number" min="0" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
                                 <div class="upcount" id="upcount" onclick="increase()" style="margin-right:5px"><button>+</button></div>
                                 <div class="downcount" id="downcount" onclick="decrease()" style="margin-right:5px"><button>-</button></div>
                             </div>
@@ -70,7 +70,7 @@
                         <form method="post">
                             <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
                             <input type="hidden" value="list" name="type" />
-                            <input type="submit" class="btn btn-outline-warning" value="Add to wishlist" />
+                            <input type="submit" class="btn btn-outline-warning wishlist-button" value="Add to wishlist" />
                         </form>
                         
                         
@@ -90,15 +90,13 @@
                                             <td>$value</td>
                                         </tr> ";
                                 }
-                                
-
                             ?>
                             
                         </tbody>
                     </table>
                     <div class="information__heading">Product Descriptions</div>
                     <div class="information__description">
-                        <?php echo $row['description']; ?>
+                        <?php echo nl2br($row['description']); ?>
                     </div>
                     
                 </div>

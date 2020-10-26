@@ -9,7 +9,7 @@
 
     <body>
         <?php 
-            include '../php/redirect.php';
+            include '../php/authorizedPage.php';
             include '../components/nav.php';
             include '../php/connect.php';
         ?>
