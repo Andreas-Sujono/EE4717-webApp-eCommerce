@@ -22,12 +22,22 @@
     else{
         //handle payment by third party 
         //assume success
-
         $sql = "update `Order` set totalAmount = $totalAmount, purchasedDate =now(), status = 1 where orderId = ".$orderId;
         mysqli_query($conn, $sql);
     
         if(mysqli_affected_rows($conn)>0){
             $success = 'true';
+            //send email
+            $to      = 'f32ee@localhost';
+            $subject = 'the subject';
+            $message = '
+                <h1>Your order is successfull</h1>
+            ';
+            $headers = 'From: f32ee@localhost' . "\r\n" .
+                'Reply-To: f32ee@localhost' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            mail($to, $subject, $message, $headers,'-ff32ee@localhost');
         }
         else{
             $success = 'false';
