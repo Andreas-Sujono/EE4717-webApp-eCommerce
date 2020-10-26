@@ -8,8 +8,10 @@
 }
 .container{
     width:80%;
-    margin-left:auto;
-    margin-right:auto;
+    max-width: 1200px;
+    min-width: 800px;
+    margin:auto;
+    padding-bottom: 100px;
 }
 
 button, .icon{
@@ -50,6 +52,7 @@ a:hover{
     background-color: white;
     width: 100%;
     max-width: 1200px;
+    min-width: 800px;
     margin:auto;
     padding: 20px;
     padding-bottom: 40px;
@@ -65,7 +68,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width:100%;
   position: relative;
   margin: auto;
 }
@@ -92,8 +95,8 @@ img {vertical-align: middle;}
 
 /* The dots/bullets/indicators */
 .dot {
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
@@ -108,10 +111,10 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: .5s;
   position:relative;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: .5s;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
 }
@@ -135,8 +138,8 @@ img {vertical-align: middle;}
     text-align: center;
 }
 .display{
-    font-size: 3em;
-    font-weight: 300;
+    font-size: 32px;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -157,8 +160,8 @@ img {vertical-align: middle;}
 }
 .heading{
     padding-bottom:0.4em;
-    margin-bottom: 0.6em;
-    margin-top:0.6em;
+    margin-bottom: 50px;
+    margin-top:40px;
 }
 .card {
     position: relative;
@@ -172,18 +175,30 @@ img {vertical-align: middle;}
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-    padding:5px;
+    padding:24px 6px;
 }
 .card-img, .card-img-top {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
+    max-width: 80%;
+    max-height: 196px ;
+    margin:auto;
 }
+/*vertical-align: middle;
+    width: 80%;
+    min-height: 50%;
+    margin: auto;
+    */
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
+
 .card-title {
     margin-bottom: .75rem;
     font-size: 1.2em;
@@ -248,4 +263,111 @@ img {vertical-align: middle;}
 }
 button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-appearance: button;
+}
+
+
+.card .cart-button{
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.card .item-price{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.homepage-title-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homepage-title-container > hr{
+   width: 35%;
+   height: 1px;
+}
+
+.homepage-title-container > h1{
+    width: 30%;
+ }
+
+
+
+
+/* for common modal component */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+
+
+/* Modal Content */
+
+.modal{
+    background-color: rgba(189, 189, 189, 0.6);
+}
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    z-index:10
+}
+  
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.modal .close {
+    color: rgb(212, 3, 3);
+    float: right;
+    font-size: 36px;
+    margin-top: -10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal .close:hover {
+    color: rgb(145, 3, 3);
+}
+  
+.modal .modal-content{
+    width: 80%;
+    margin:auto;
+    min-width: 300px;
+    max-width: 600px;    
+    padding: 24px; 
+    color: black;
+}
+/* .modal .modal-body {
+} */
+
+.rating-star{
+    width: 24px;
 }

@@ -1,4 +1,5 @@
 var slideIndex = 0;
+let slideDuration = 4000
 showSlides();
 
 function showSlides() {
@@ -15,24 +16,25 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, slideDuration); // Change image every slideDuration seconds
 }
 
 function setLimit(v, target) {
-  console.log(v)
-  v = parseInt(v)
-  console.log(v)
-  if(v<0){
-    target.value=0;
-  }
+  v = parseInt(v);
+  v = Number.isNaN(v) ? 0 : v;
+  target.value = v == 0 ? "" : v;
+  document.getElementById('qty').value = v < 0 ? 1 : v;
 }
 
 function increase() {
   let element = document.getElementById('count');
   element.value = parseInt(element.value) + 1;
+  document.getElementById('qty').value = element.value;
 }
 
 function decrease() {
   let element = document.getElementById('count');
-  element.value = parseInt(element.value) - 1 < 0 ? 0 : parseInt(element.value) - 1;
+  element.value = parseInt(element.value) - 1 <= 0 ? 1 : parseInt(element.value) - 1;
+  document.getElementById('qty').value = element.value;
 }
+

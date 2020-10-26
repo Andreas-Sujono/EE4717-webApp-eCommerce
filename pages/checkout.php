@@ -1,17 +1,17 @@
 <html>
     <?php 
         $success=0;
-        if(isset($_GET['app']) && !empty($_GET['success']))
+        if(isset($_GET['success']) && !empty($_GET['success']))
             $success = $_GET['success']; 
 
     ?>
     <head>
         <title>Checkout</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/checkout.css"/>
         <link rel="stylesheet" href="../css/index.css"/>
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
-        <link rel="stylesheet" href="../css/checkout.css"/>
+        
     </head>
 
     <body>
@@ -116,42 +116,71 @@
                                 </td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" id="success">
-                            Launch payment successful
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" id="unsuccess">
-                            Launch payment unsuccessful
-                        </button>
+                        <!-- The Modal -->
+                        <div id="success" class="modal">
+                            <span></span>
+                            <div class="modal-content">
+                                <div class="modal-header-success">
+                                    <span class="close" id="close">&times;</span>
+                                    <h2>Payment Successful !!</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <img width="100" height="100" src="../images/successful.png" alt="">
+                                </div>
+                                <div class="modal-footer-success">
+                                    <p>We have sent you the order confirmation to your email</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="unsuccess" class="modal">
+                            <span></span>
+                            <div class="modal-content">
+                                <div class="modal-header-unsuccess">
+                                    <span class="close" id="close">&times;</span>
+                                    <h2>Payment Unsuccessful !!</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <img width="100" height="100" src="../images/cross.png" alt="">
+                                </div>
+                                <div class="modal-footer-unsuccess">
+                                    <p>There's something wrong with the payment, please try again!</p>
+                                </div>
+                            </div>
+                        </div>
                         
                         
                     </div>
                 </div>
             </div>
             <script>
-                var check=<?php echo $success ?>
-                alert(check)
-                // Get the modal
-                var modal = document.getElementById("success");
+                var check='<?php echo ($success); ?>'
+                // alert(typeof(check))
+           
+                var modal1 = document.getElementById("success");
+                var modal2 = document.getElementById("unsuccess");
+                
+                var span = document.getElementById("close");
 
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-                // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                modal.style.display = "block";
-                }
-
-                // When the user clicks on <span> (x), close the modal
+                
+                if (check === 'true')
+                    modal1.style.display = "block";
+                if (check === 'false')
+                    modal2.style.display = "block";
+                
                 span.onclick = function() {
-                modal.style.display = "none";
+                    modal1.style.display = "none";
+                    modal2.style.display = "none";
                 }
 
-                // When the user clicks anywhere outside of the modal, close it
+        
                 window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+                    if (event.target == modal1 || event.target == modal2) {
+                        modal1.style.display = "none";
+                        modal2.style.display = "none";
+                    }
                 }
-                }
+
+                
             </script>
         <?php include '../components/footer.php' ?>
     </body>
