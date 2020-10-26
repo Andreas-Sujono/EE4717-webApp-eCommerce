@@ -1,3 +1,4 @@
+
 .product__briefinfo * {
     margin-bottom:5px;
 }
@@ -60,3 +61,6 @@
     margin-top: 20px;
 }
 
+.top-content{
+    padding-bottom: 30px;
+}

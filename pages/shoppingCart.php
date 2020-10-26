@@ -9,9 +9,9 @@
 
     <body>
         <?php 
-            include '../php/authorizedPage.php';
             include '../components/nav.php';
             include '../php/connect.php';
+            include '../php/authorizedPage.php';
         ?>
 
             <div class="shopping-cart-page page">
@@ -60,8 +60,8 @@
                                             </span>
                                         </td>
                                         <td>'.$row['quantity'].'</td>
-                                        <td>'.$row['price'].'</td>
-                                        <td>'.($row['price']*$row['quantity']).'</td>
+                                        <td>$'.$row['price'].'</td>
+                                        <td>$'.($row['price']*$row['quantity']).'</td>
                                         <td>
                                             <form action="../php/delFromCart.php"method="POST">
                                                 <input type="hidden" value="'. $row['productId']. '" name="product_id" />
@@ -75,16 +75,28 @@
                             ?>
                         </tbody>
                         <tfoot>
-                            <tr>
-
-                                <td colspan="4" class="total-price">Total Price: <span><?php echo $total; ?></span></td>
-                                <td>
-                                    <form action="../php/final_checkout.php" method="POST">
-                                    <input type="hidden" value="<?php echo $total; ?>" name="total" />
-                                    <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
-                                    <input type="submit" class="checkout-btn" value="Checkout" />
-                                </td>
-                            </tr>   
+                            <?php 
+                                if($result->num_rows > 0){
+                                    echo '
+                                    <tr>
+                                        <td colspan="5" class="total-price">Total Price: <span> $'.$total.'</span></td>
+                                        <td>
+                                            <form action="../php/final_checkout.php" method="POST">
+                                            <input type="hidden" value="<?php echo $total; ?>" name="total" />
+                                            <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
+                                            <input type="submit" class="checkout-btn" value="Checkout" />
+                                        </td>
+                                    </tr> ';
+                                }
+                                else{
+                                    echo '
+                                    <tr>
+                                        <td class="no-product" colspan="6">No Product added to cart</td>
+                                    </tr>
+                                    ';
+                                }
+                            ?>
+                             
                         </tfoot>
                     </table>
                 </div>

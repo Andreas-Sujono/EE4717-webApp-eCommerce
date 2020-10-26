@@ -36,7 +36,7 @@
             
         ?>
             <div class="container content">
-                <div class="flex-row justify-content-between">
+                <div class="flex-row justify-content-between top-content" style="padding-bottom: 30px;">
                     <div class="product__image">
                         <img src="<?php echo $row['image']; ?>" alt="..." />
                     </div>
@@ -64,7 +64,7 @@
                             </form>
                             <!-- <button type="button" class="btn btn-outline-primary">Add to cart</button> -->
                             <form method="post">
-                                <button type="button" class="btn btn-outline-success">Buy Now</button>
+                                <button type="button" class="btn btn-success btn-block">Buy Now</button>
                             </form>
                         </div>
                         <form method="post">

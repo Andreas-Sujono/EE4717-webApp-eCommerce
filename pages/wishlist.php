@@ -10,8 +10,8 @@
 
     <body>      
         <?php 
-            include('../php/authorizedPage.php');
             include('../components/nav.php');
+            include('../php/authorizedPage.php');
         ?>
         
             <div class="category-page page">
@@ -35,7 +35,7 @@
                                 while($row = $result->fetch_assoc()) {
                                    
                                     echo '
-                                    <div class="product-card">
+                                    <div class="product-card justify-content-between" style="padding:20px;">
                                         <a href="../pages/productPage.php?productId='. $row['productId'].'" class="product-link">
                                             <img src="'.$row['image'].'"/>
                                         </a>
@@ -55,6 +55,9 @@
                                     </div>
                                     <hr/>';   
                                 }
+                            }
+                            else{
+                                echo '<div class="no-product">No Product added to wishlist</div>';
                             }
                         }
                     
