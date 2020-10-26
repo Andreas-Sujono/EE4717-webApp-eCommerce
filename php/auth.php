@@ -1,10 +1,11 @@
 <?php
 session_start();
+$showModal = isset($_GET['showModal']) ? $_GET['showModal'] : '';
+
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
     $password = md5($password);
-    $showModal = null;
 
     //handle login here
     if($_POST['type'] == 'login'){

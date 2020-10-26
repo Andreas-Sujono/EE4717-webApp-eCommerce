@@ -9,9 +9,9 @@
 
     <body>
         <?php 
+            include '../php/redirect.php';
             include '../components/nav.php';
             include '../php/connect.php';
-
         ?>
             <div class="shopping-cart-page page">
                 <div class="title-container">
@@ -69,7 +69,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="4" class="total-price">Total Price: <span>$250</span></td>
-                                <td><button class="checkout-btn"> Checkout </button></td>
+                                <td><button class="checkout-btn"> <a href="./checkout.php" style="color: white;"> Checkout </a> </button></td>
                             </tr>   
                         </tfoot>
                     </table>

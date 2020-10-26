@@ -1,10 +1,4 @@
 <html>
-    <?php 
-        $success=0;
-        if(isset($_GET['app']) && !empty($_GET['success']))
-            $success = $_GET['success']; 
-
-    ?>
     <head>
         <title>Checkout</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -15,7 +9,11 @@
     </head>
 
     <body>
-        <?php include '../components/nav.php' ?>
+        <?php 
+            include '../php/redirect.php';
+            include '../components/nav.php';
+            include '../php/connect.php';
+        ?>
             <div class="checkout-page page">
                 <div class="title-container">
                     <h1>Checkout</h1>
@@ -116,43 +114,10 @@
                                 </td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" id="success">
-                            Launch payment successful
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" id="unsuccess">
-                            Launch payment unsuccessful
-                        </button>
-                        
                         
                     </div>
                 </div>
             </div>
-            <script>
-                var check=<?php echo $success ?>
-                alert(check)
-                // Get the modal
-                var modal = document.getElementById("success");
-
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-
-                // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                modal.style.display = "block";
-                }
-
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                modal.style.display = "none";
-                }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-                }
-            </script>
         <?php include '../components/footer.php' ?>
     </body>
 
