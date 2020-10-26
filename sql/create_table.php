@@ -24,6 +24,7 @@ $sql .= "CREATE TABLE `CustomerDetails` (
     fullName varchar(128),
     email varchar(128),
     phoneNumber varchar(30),
+    address varchar(256),
     dateOfBirth Date,
     FOREIGN KEY (accountId)
         REFERENCES Account(accountId)

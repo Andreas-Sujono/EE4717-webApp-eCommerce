@@ -8,7 +8,7 @@
         $id = $_POST['id'];
         $uid = $_SESSION['custId'];
         $sql = "";
-        if($_POST['type'] == "cart")
+        if($_POST['type'] == "cart" || $_POST['type'] == "BUY_NOW")
         {
             include "../php/addToCart.php";   
         }

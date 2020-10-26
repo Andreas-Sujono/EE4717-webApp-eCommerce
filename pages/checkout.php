@@ -1,5 +1,4 @@
 <html>
-
     <?php 
         $success=0;
         if(isset($_GET['success']) && !empty($_GET['success']))
@@ -17,9 +16,18 @@
 
     <body>
         <?php 
-            include '../php/redirect.php';
             include '../components/nav.php';
             include '../php/connect.php';
+            include '../php/authorizedPage.php';
+                   
+            $uid = $_SESSION['custId'];
+            $query = "SELECT * FROM CustomerDetails where custId=$uid";
+            $customerDetails = mysqli_query($conn, $query);
+            $customerDetails = $customerDetails->fetch_assoc();
+
+            $query = "SELECT * FROM `Order` , `OrderItems`,`Product` WHERE `Order`.`orderId` = `OrderItems`.`orderId` and `OrderItems`.`productId` = `Product`.`productId` and custId=$uid and `status`=0";
+            $result = mysqli_query($conn, $query);
+
         ?>
             <div class="checkout-page page">
                 <div class="title-container">
@@ -38,37 +46,30 @@
                                 </tr>   
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product-col"> 
-                                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa" alt="product"/>
-                                        <span>Asus Vivobook<span>
-                                    </td>
-                                    <td>$250</td>
-                                    <td>1</td>
-                                    <td>$250</td>
-                                </tr>   
-                                <tr>
-                                    <td class="product-col"> 
-                                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa" alt="product"/>
-                                        <span>Asus Vivobook<span>
-                                    </td>
-                                    <td>$250</td>
-                                    <td>1</td>
-                                    <td>$250</td>
-                                </tr>     
-                                <tr>
-                                    <td class="product-col"> 
-                                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa" alt="product"/>
-                                        <span>Asus Vivobook<span>
-                                    </td>
-                                    <td>$250</td>
-                                    <td>1</td>
-                                    <td>$250</td>
-                                </tr>   
+                                <?php
+                                    $total=0;
+                                    $orderId = 0;
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $total+=$row['price']*$row['quantity'];
+                                        $orderId  = $row['orderId'];
+                                        echo '
+                                        <tr>
+                                            <td class="product-col"> 
+                                                <img src="'.$row['image'].'" alt="product"/>
+                                                <span>'. $row['name'] .'<span>
+                                            </td>
+                                            <td>$'. $row['price'] .'</td>
+                                            <td>'. $row['quantity'] .'</td>
+                                            <td>$'. ($row['price']*$row['quantity']) .'</td>
+                                        </tr>';
+                                    }
+                                
+                                ?>
+ 
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="4" class="total-price">Order Total: <span>$250</span></td>
+                                    <td colspan="4" class="total-price">Order Total: <span>$<?php echo $total; ?></span></td>
                                 </tr>   
                             </tfoot>
                         </table>
@@ -79,48 +80,53 @@
                 <div class="checkout-content content">
                     <div class="customer-details">
                         <h2>Customer Details</h2>
-                        <table class="customer-details-table">
-                            <tr>
-                                <td class="label">Full Name</td>
-                                <td> <input type="text" placeholder="Your full name"/> </td>
-                                <td class="label">Payment Method</td>
-                                <td><input type="radio" checked/> Credit Card</td>
-                            </tr>
-                            <tr>
-                                <td class="label">Email</td>
-                                <td> <input type="email" placeholder="Your email address"/> </td>
-                                <td class="label">Name on card</td>
-                                <td> <input type="text" placeholder="Your name on card"/> </td>
-                            </tr>
-                            <tr>
-                                <td class="label">Phone Number</td>
-                                <td> <input type="text" placeholder="Your phone number"/> </td>
-                                <td class="label">Credit card No.</td>
-                                <td> <input type="text" placeholder="Your credit card number"/> </td>
-                            </tr>
-                            <tr>
-                                <td class="label">Address</td>
-                                <td> <input type="text" placeholder="Your address"/> </td>
-                                <td class="label">Expires on</td>
-                                <td> <input type="text" placeholder="Your credit card expires on"/> </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="label">CVV</td>
-                                <td> <input type="text" placeholder="Your credit card CVV"/> </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td colspan="2">
-                                    <div class="total-payment">
-                                        <div>Total Payment: <span>$750</span></div>
-                                        <button class="place-order-btn">Place Order</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        <form method="POST" action="../php/placeOrder.php">
+                            <table class="customer-details-table">
+                                <tr>
+                                    <td class="label">Full Name</td>
+                                    <td> <input type="text" placeholder="Your full name" name="fullName" value="<?php echo $customerDetails['fullName']; ?>"/> </td>
+                                    <td class="label">Payment Method</td>
+                                    <td><input type="radio" checked name="paymentMethod"/> Credit Card</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Email</td>
+                                    <td> <input type="email" placeholder="Your email address" name="email" value="<?php echo $customerDetails['email']; ?>"/> </td>
+                                    <td class="label">Name on card</td>
+                                    <td> <input type="text" placeholder="Your name on card" name="nameOnCard"/> </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Phone Number</td>
+                                    <td> <input type="text" placeholder="Your phone number" name="phoneNumber" value="<?php echo $customerDetails['phoneNumber']; ?>"/> </td>
+                                    <td class="label">Credit card No.</td>
+                                    <td> <input type="text" placeholder="Credit card number" name="creditCardNumber"/> </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Address</td>
+                                    <td> <input type="text" placeholder="Your address" name="address" value="<?php echo $customerDetails['address']; ?>"/> </td>
+                                    <td class="label">Expires on</td>
+                                    <td> <input type="text" placeholder="MM/YY" name="creditCardExpires"/> </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="label">CVV</td>
+                                    <td> <input type="text" placeholder="CVV" name="cvv"/> </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="2">
+                                        <div class="total-payment">
+                                            <input type="hidden" name="totalAmount" value="<?php echo $total;?>"/>
+                                            <input type="hidden" name="orderId" value="<?php echo $orderId;?>"/>
+                                            <input type="hidden" name="custId" value="<?php echo $uid;?>"/>
+                                            <div>Total Payment: <span>$750</span></div>
+                                            <button class="place-order-btn">Place Order</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
 
                         <!-- The Modal -->
                         <div id="success" class="modal">
@@ -136,6 +142,7 @@
                                 <div class="modal-footer-success">
                                     <p>We have sent you the order confirmation to your email</p>
                                 </div>
+                                <button class="btn btn-outline-primary" style="margin:auto;display: block; margin-top: 12px;"> <a href="../pages/">Back to Homepage </a></button>
                             </div>
                         </div>
                         <div id="unsuccess" class="modal">

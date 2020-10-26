@@ -1,8 +1,20 @@
-const validateUserInformation = () => {
-    
+const validateUserInformation = ({fullName, email, phoneNumber, address, nameOnCard, creditCardNumber, creditCardExpiresOn, cvv, errorDom}) => {
+    let isValidated = true
+    let errorMessage = ''
+
+    if(!fullName || !email || !phoneNumber || !address || !nameOnCard || !creditCardNumber || !creditCardExpiresOn || !cvv){
+        isValidated = false
+        errorMessage = 'Please input all the field'
+    }
+
+    if(!isValidated){
+        errorDom.innerHtml = errorMessage
+    }
+
+    return isValidated
 }
 
-const validateLogin = (username, password, errorDom) => {
+const validateLogin = ({username, password, errorDom}) => {
     let isValidated = true
     let errorMessage = ''
     if(!username || !password){
@@ -16,7 +28,7 @@ const validateLogin = (username, password, errorDom) => {
     return isValidated
 }
 
-const validateSignup = (fullName, email, username, dateOfBirth, password, confirmPassword, errorDom) => {
+const validateSignup = ({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom}) => {
     let isValidated = true
     let errorMessage = ''
     if(!fullName || !email || !username || !dateOfBirth || !password || !confirmPassword){

@@ -18,8 +18,8 @@ $password_hashed = md5($password);
 $sql = "INSERT INTO Account (username, password)
 VALUES ('test', '$password_hashed');";
 
-$sql .= "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth)
-VALUES ( (SELECT accountId from Account where username = 'test'), 'test', 'test@gmail.com', '83066382', '2000-08-01');";
+$sql .= "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth, address)
+VALUES ( (SELECT accountId from Account where username = 'test'), 'test', 'test@gmail.com', '83066382', '2000-08-01', '');";
 
 // insert LAPTOP product
 $sql .= "INSERT INTO `Product` (name, price, category, rating, stock, description, specification, image, bestSellingProduct)

@@ -81,7 +81,7 @@
                                     <tr>
                                         <td colspan="5" class="total-price">Total Price: <span> $'.$total.'</span></td>
                                         <td>
-                                            <form action="../php/final_checkout.php" method="POST">
+                                            <form action="../pages/checkout.php" method="POST">
                                             <input type="hidden" value="<?php echo $total; ?>" name="total" />
                                             <input type="hidden" value="<?php echo $order_id; ?>" name="order_id" />
                                             <input type="submit" class="checkout-btn" value="Checkout" />
