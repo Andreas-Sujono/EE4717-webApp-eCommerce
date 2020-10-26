@@ -17,9 +17,12 @@
     $sql = "update CustomerDetails set fullName='$fullName', email='$email', phoneNumber='$phoneNumber', address='$address' where custId = '$custId'";
     mysqli_query($conn, $sql);
     if(mysqli_affected_rows($conn)<=0){
-        $success = 'false1';
+        $success = 'false';
     }
     else{
+        //handle payment by third party 
+        //assume success
+
         $sql = "update `Order` set totalAmount = $totalAmount, purchasedDate =now(), status = 1 where orderId = ".$orderId;
         mysqli_query($conn, $sql);
     
@@ -27,9 +30,14 @@
             $success = 'true';
         }
         else{
-            $success = 'false2';
+            $success = 'false';
         }
+
+        //TEST - case if payment unsuccessful
+        if($custId == 2)
+            $success = 'false';
     }
+
     header("Location:../pages/checkout.php?success=".$success);
     
 ?>

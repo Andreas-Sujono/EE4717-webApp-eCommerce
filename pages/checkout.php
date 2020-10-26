@@ -16,9 +16,9 @@
 
     <body>
         <?php 
+            include('../php/authorizedPage.php');
             include '../components/nav.php';
             include '../php/connect.php';
-            include '../php/authorizedPage.php';
                    
             $uid = $_SESSION['custId'];
             $query = "SELECT * FROM CustomerDetails where custId=$uid";
@@ -84,33 +84,33 @@
                             <table class="customer-details-table">
                                 <tr>
                                     <td class="label">Full Name</td>
-                                    <td> <input type="text" placeholder="Your full name" name="fullName" value="<?php echo $customerDetails['fullName']; ?>"/> </td>
+                                    <td> <input type="text" placeholder="Your full name" name="fullName" value="<?php echo $customerDetails['fullName']; ?>" required/> </td>
                                     <td class="label">Payment Method</td>
                                     <td><input type="radio" checked name="paymentMethod"/> Credit Card</td>
                                 </tr>
                                 <tr>
                                     <td class="label">Email</td>
-                                    <td> <input type="email" placeholder="Your email address" name="email" value="<?php echo $customerDetails['email']; ?>"/> </td>
+                                    <td> <input type="email" placeholder="Your email address" name="email" value="<?php echo $customerDetails['email']; ?>" required/> </td>
                                     <td class="label">Name on card</td>
-                                    <td> <input type="text" placeholder="Your name on card" name="nameOnCard"/> </td>
+                                    <td> <input type="text" placeholder="Your name on card" name="nameOnCard" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Phone Number</td>
-                                    <td> <input type="text" placeholder="Your phone number" name="phoneNumber" value="<?php echo $customerDetails['phoneNumber']; ?>"/> </td>
+                                    <td> <input type="text" placeholder="Your phone number" name="phoneNumber" value="<?php echo $customerDetails['phoneNumber']; ?> " required/> </td>
                                     <td class="label">Credit card No.</td>
-                                    <td> <input type="text" placeholder="Credit card number" name="creditCardNumber"/> </td>
+                                    <td> <input type="text" placeholder="Credit card number" name="creditCardNumber" required/> </td>
                                 </tr>
                                 <tr>
                                     <td class="label">Address</td>
-                                    <td> <input type="text" placeholder="Your address" name="address" value="<?php echo $customerDetails['address']; ?>"/> </td>
+                                    <td> <input type="text" placeholder="Your address" name="address" value="<?php echo $customerDetails['address']; ?> " required/> </td>
                                     <td class="label">Expires on</td>
-                                    <td> <input type="text" placeholder="MM/YY" name="creditCardExpires"/> </td>
+                                    <td> <input type="text" placeholder="MM/YY" name="creditCardExpires" required/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td class="label">CVV</td>
-                                    <td> <input type="text" placeholder="CVV" name="cvv"/> </td>
+                                    <td> <input type="text" placeholder="CVV" name="cvv" required/> </td>
                                 </tr>
                                 <tr>
                                     <td></td>

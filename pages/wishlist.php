@@ -1,5 +1,4 @@
 <html>
-    
     <head>
         <title>Wishlist</title>
         <link rel="stylesheet" href="../css/index.css"/>
@@ -10,8 +9,8 @@
 
     <body>      
         <?php 
-            include('../components/nav.php');
             include('../php/authorizedPage.php');
+            include('../components/nav.php');
         ?>
         
             <div class="category-page page">

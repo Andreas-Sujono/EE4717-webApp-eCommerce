@@ -8,10 +8,10 @@
     </head>
 
     <body>
-        <?php 
+        <?php
+            include('../php/authorizedPage.php');
             include '../components/nav.php';
             include '../php/connect.php';
-            include '../php/authorizedPage.php';
         ?>
 
             <div class="shopping-cart-page page">

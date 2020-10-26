@@ -1,11 +1,16 @@
 <?php
-session_start();
+if(session_id() == ''){
+    //session has not started
+    session_start();
+}
+
 $showModal = isset($_GET['showModal']) ? $_GET['showModal'] : '';
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
     $password = md5($password);
+    $errorMessage = '';
 
     //handle login here
     if($_POST['type'] == 'login'){
@@ -29,6 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $custId = $row['custId']; 
             
             $_SESSION['custId'] = $custId;
+            $showModal='';
         }
         else{ //if login is failed
             $errorMessage = 'Invalid username or password';
@@ -92,6 +98,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $custId = $row['custId']; 
             
             $_SESSION['custId'] = $custId;
+            $showModal='';
         }
         
     }
