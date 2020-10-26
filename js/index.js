@@ -20,21 +20,21 @@ function showSlides() {
 }
 
 function setLimit(v, target) {
-  console.log(v)
-  v = parseInt(v)
-  console.log(v)
-  if(v<0){
-    target.value=0;
-  }
+  v = parseInt(v);
+  v = Number.isNaN(v) ? 0 : v;
+  target.value = v == 0 ? "" : v;
+  document.getElementById('qty').value = v < 0 ? 1 : v;
 }
 
 function increase() {
   let element = document.getElementById('count');
   element.value = parseInt(element.value) + 1;
+  document.getElementById('qty').value = element.value;
 }
 
 function decrease() {
   let element = document.getElementById('count');
-  element.value = parseInt(element.value) - 1 < 0 ? 0 : parseInt(element.value) - 1;
+  element.value = parseInt(element.value) - 1 <= 0 ? 1 : parseInt(element.value) - 1;
+  document.getElementById('qty').value = element.value;
 }
 

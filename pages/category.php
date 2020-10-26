@@ -21,8 +21,8 @@
                     <h1><?php echo ucfirst($productCategory); ?></h1>
                 </div>
                 <div class="category-content content">
-
-                    <?php 
+                    <?php
+                        include "../php/cart_and_list.php"; 
                         include '../php/connect.php';
                         $sql = "SELECT * FROM `Product` WHERE category='$productCategory';";
                         $result = $conn->query($sql);
@@ -53,8 +53,23 @@
                                     
                                     <div class="product-action">
                                         <div class="product-price">$'. $row['price'] .'</div>
-                                        <button>Add to cart</button>
+
+                                        <form method="post">
+                                        <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                        <input type="hidden" value="cart" name="type" />
+                                        <input type="submit" class="btn btn-success btn-block" value="Add to cart"/>
+                                        </form>
+                                        <form method="post">
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <input type="hidden" value="list" name="type" />
+                                            <input type="submit" class="wishlist-button" value="Add to wishlist"/>
+                                        </form>
+                                        <!--<button>Add to cart</button>
                                         <button class="wishlist-button">Add to wishlist</button>
+                                        <form action="../php/addToWishlist.php" method="post">
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <button type="submit" class="wishlist-button" >Add to wishlist</button>
+                                        </form> -->
                                     </div>
                                 </div>
                                 <hr/>';
@@ -65,7 +80,26 @@
                     ?>
 
                 </div>
+                
             </div>
+            <script>
+                var result = '<?php echo($res); ?>'
+                switch(result){
+                    case "NOT_LOGGED_IN" : alert("Please login to continue");
+                                            triggerModalById("login-modal");
+                                            break;
+                    case "ALREADY_ADDED" :  alert("Already added");
+                                            break;
+                    case "SUCCESS" :    alert("Added to wishlist");
+                                        break;
+                    case "UNSUCCESS" :   alert("Could not add");
+                                        break;
+                    case "CART_ADD" :   alert("Added to cart");
+                                        break;                    
+                    case "CART_UPDATE" : alert("Cart updated");
+                                        break;
+                }   
+            </script>
         <?php include '../components/footer.php' ?>
     </body>
 

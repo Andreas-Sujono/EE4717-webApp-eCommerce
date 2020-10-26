@@ -2,8 +2,10 @@
     <head>
         <title>Product Information</title>
         <link rel="stylesheet" href="../css/index.css"/>
+
         <link rel="stylesheet" href="../css/productPage.css"/>
         <link rel="stylesheet" href="../css/category.css"/>
+
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
         
@@ -22,75 +24,105 @@
     </head>
 
     <body>
-        <?php include '../components/nav.php' ?>
+    
+        <?php 
+            include('../components/nav.php');
+            include("../php/cart_and_list.php"); 
+            include("../php/connect.php");
+            $query = "SELECT * FROM Product where productId='".$_GET['productId']."'";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            
+            
+        ?>
             <div class="container content">
-                <div class="product flex-row justify-content-around">
+                <div class="flex-row justify-content-around">
                     <div class="product__image">
-                        <img src="../images/laptop1.jpg" alt="..." />
+                        <img src="<?php echo $row['image']; ?>" alt="..." />
                     </div>
                     <div class="product__briefinfo">
-                        <div class="product-name">Product Name 1</div>
-                        <div class="product-rating">4.0</div>
-                        <div class="product-price">$250</div>
+                        <div class="product-name"><?php echo $row['name']; ?></div>
+                             
+                        <?php $rating = $row['rating']; include '../components/rating.php';?> 
+                        
+                        <div class="product-price"><?php echo "$".$row['price']; ?></div>
                         <div class="product-quantity">
                             <div class="flex-row" style="align-items: center;">
-                                <label class="input-group-text">Quantity</label>
-                                <input type="number" id="count" value="0" min="0" class="count" onchange="setLimit(this.value, this)" style="margin-right:5px" />
-                                <div>
-                                    <div class="upcount" id="upcount" onclick="increase()"><button>+</button></div>
-                                    <div class="downcount" id="downcount" onclick="decrease()"><button>-</button></div>
-                                </div>
+
+                                <label class="input-group-text" style="margin-right:5px">Quantity</label>
+                                <input type="text" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
+                                <div class="upcount" id="upcount" onclick="increase()" style="margin-right:5px"><button>+</button></div>
+                                <div class="downcount" id="downcount" onclick="decrease()" style="margin-right:5px"><button>-</button></div>
                             </div>
                         </div>
-                        <div class="buttons mb-2">
-                            <button type="button" class="btn btn-outline-primary">Add to cart</button>
-                            <button type="button" class="btn btn-outline-success">Buy Now</button>
+                        <div class="buttons flex-row">
+                            <form method="post">
+                                <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
+                                <input type="hidden" value="cart" name="type" />
+                                <input type="hidden" value="1" name="quantity" id="qty" />
+                                <input type="submit" class="btn btn-outline-primary" value="Add to cart" />
+                            </form>
+                            <!-- <button type="button" class="btn btn-outline-primary">Add to cart</button> -->
+                            <form method="post">
+                                <button type="button" class="btn btn-outline-success">Buy Now</button>
+                            </form>
                         </div>
-                        <div class="wishlist flex-row">
-                            <svg onclick="select()" id="not-selected" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg>
-                            <svg onclick="unselect()" id="selected" class="selected " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>
-                            <span id="wishlist__text" class="ml-2">Add to Wishlist</span>
-                        </div>
+                        <form method="post">
+                            <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
+                            <input type="hidden" value="list" name="type" />
+                            <input type="submit" class="btn btn-outline-warning" value="Add to wishlist" />
+                        </form>
+                        
                         
                     </div>
                 </div>
                 <div class="information">
                     <div class="information__heading">Product Specifications</div>
+                    <?php $prod = json_decode($row['specification']);?>
                     <table class="table">
                         <tbody>
-                            <tr>
-                            <td>Standing screen display size</td>
-                            <td>17.3 Inches</td>
-                            </tr>
+                            <?php
+                                foreach($prod as $key => $value)
+                                {
+                                    echo "
+                                        <tr>
+                                            <td>$key</td>
+                                            <td>$value</td>
+                                        </tr> ";
+                                }
+                                
 
-                            <tr>
-                            <td>Screen Resolution</td>
-                            <td>1920 x 1080 pixels</td>
-                            </tr>
-
-                            <tr>
-                            <td>Memory Speed</td>
-                            <td>3200 MHz</td>
-                            </tr>
-
-                            <tr>
-                            <td>Graphics Coprocessor</td>
-                            <td>NVIDIA GeForce RTX 2080 Super</td>
-                            </tr>
-
-                            <tr>
-                            <td>Graphics Card Ram Size</td>
-                            <td>8 GB</td>
-                            </tr>
+                            ?>
+                            
                         </tbody>
                     </table>
                     <div class="information__heading">Product Descriptions</div>
                     <div class="information__description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mollis ligula eu leo fringilla, ut imperdiet diam consequat. Praesent neque metus, mattis vel dui vel, vehicula euismod erat. Mauris vel ante sit amet magna ultrices egestas. Morbi nec rhoncus magna. Nullam in dictum augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque arcu eros, mollis nec ligula in, porta malesuada ipsum. Vestibulum tincidunt laoreet aliquet. Nunc sed tortor ut nulla hendrerit gravida non vel felis. Donec auctor urna metus, sit amet gravida sapien sodales non. Nam nec viverra ligula, non vestibulum felis. Praesent facilisis cursus tortor et condimentum. Nullam ullamcorper felis in tortor vestibulum porta. Vivamus vulputate odio at diam ultrices mattis. Mauris et pulvinar ipsum. Suspendisse sagittis, risus non tincidunt rutrum, ipsum nisl elementum augue, eget consequat turpis nibh et nisi.
+                        <?php echo $row['description']; ?>
                     </div>
+                    
                 </div>
+                <?php $conn->close(); ?>
             </div>
             <script src="../js/index.js" ></script>
+            <script>
+                var result = '<?php echo($res); ?>'
+                switch(result){
+                    case "NOT_LOGGED_IN" : alert("Please login to continue");
+                                            triggerModalById("login-modal");
+                                            break;
+                    case "ALREADY_ADDED" :  alert("Already added");
+                                            break;
+                    case "SUCCESS" :    alert("Added to wishlist");
+                                        break;
+                    case "UNSUCCESS" :   alert("Could not add");
+                                        break;
+                    case "CART_ADD" :   alert("Added to cart");
+                                        break;                    
+                    case "CART_UPDATE" : alert("Cart updated");
+                                        break;
+                }   
+            </script>
         <?php include '../components/footer.php' ?>
     </body>
 

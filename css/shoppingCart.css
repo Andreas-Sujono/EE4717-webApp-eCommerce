@@ -36,12 +36,14 @@
 
 .shopping-cart-page table .delete-btn{
     background-color: #EE3232;
+    cursor: pointer;
 }
 
 .shopping-cart-page table .checkout-btn{
     background-color: #3DA300;
     width: 150px;
     height: 40px;
+    cursor: pointer;
 }
 
 .shopping-cart-page table .product-col img{

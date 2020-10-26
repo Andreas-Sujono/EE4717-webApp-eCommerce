@@ -9,56 +9,59 @@
     </head>
 
     <body>      
-        <?php include '../components/nav.php' ?>
+        <?php 
+            include('../components/nav.php');
+        ?>
+        
             <div class="category-page page">
                 <div class="title-container">
                     <h1>Your Wishlist</h1>
                 </div>
                 <div class="category-content content">
-                    <div class="product-card">
-                        <a href="../pages/productPage.php" class="product-link">
-                            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa"/>
-                        </a>
-                        <div class="product-details">
-                            <a href="../pages/productPage.php" class="product-link">
-                                <div class="product-name">Product Name 1</div>
-                            </a>
-                            <div class="product-rating">4.0</div>
-                            <div class="product-price" style="margin-top:20px">$250</div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Remove Item</button>
-                    </div>
-                    <hr/>
-                    <div class="product-card">
-                        <a href="../pages/productPage.php" class="product-link">
-                            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa"/>
-                        </a>
-                        <div class="product-details">
-                            <a href="../pages/productPage.php" class="product-link">
-                                <div class="product-name">Product Name 1</div>
-                            </a>
-                            <div class="product-rating">4.0</div>
-                            <div class="product-price" style="margin-top:20px">$250</div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Remove Item</button>
-                    </div>
-                    <hr/>
-                    <div class="product-card">
-                        <a href="../pages/productPage.php" class="product-link">
-                            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3oYjc?ver=e1aa"/>
-                        </a>
-                        <div class="product-details">
-                            <a href="../pages/productPage.php" class="product-link">
-                                <div class="product-name">Product Name 1</div>
-                            </a>
-                            <div class="product-rating">4.0</div>
-                            <div class="product-price" style="margin-top:20px">$250</div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Remove Item</button>
-                    </div>
+
+                    <?php
+                        include('../php/connect.php');
+                        
+                        if(!isset($_SESSION['custId']))
+                            echo "login first";
+                        else {
+                            $custId = $_SESSION['custId'];
+                            $sql = "SELECT * FROM Wishlist, Product WHERE Wishlist.productId=Product.productId and $custId=custId";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                   
+                                    echo '
+                                    <div class="product-card">
+                                        <a href="../pages/productPage.php?productId='. $row['productId'].'" class="product-link">
+                                            <img src="'.$row['image'].'"/>
+                                        </a>
+                                        <div class="product-details">
+                                            <a href="../pages/productPage.php?productId='. $row['productId'].'" class="product-link">
+                                                <div class="product-name">'.$row['name'].'</div>
+                                            </a>';
+                                            $rating = $row['rating']; include '../components/rating.php';
+                                    echo'    
+                                            <div class="product-price">'.$row['price'].'</div>
+                                        </div>
+                                      
+                                        <form action="../php/delFromWishlist.php" method="post">
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <input type="submit" class="btn btn-danger" value="Remove Item"/>
+                                        </form>
+                                    </div>
+                                    <hr/>';   
+                                }
+                            }
+                        }
                     
+                    ?>
+                                        
                     
                 </div>
+                <?php $conn->close(); ?>
             </div>
         <?php include '../components/footer.php' ?>
     </body>

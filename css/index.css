@@ -184,12 +184,21 @@ img {vertical-align: middle;}
     max-height: 196px ;
     margin:auto;
 }
+/*vertical-align: middle;
+    width: 80%;
+    min-height: 50%;
+    margin: auto;
+    */
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
+
 .card-title {
     margin-bottom: .75rem;
     font-size: 1.2em;
@@ -356,8 +365,13 @@ button, [type="button"], [type="reset"], [type="submit"] {
     padding: 24px; 
     color: black;
 }
+<<<<<<< HEAD
 .modal .modal-body {
 }
+=======
+/* .modal .modal-body {
+} */
+>>>>>>> 389e5d55aa4135e662ca35db853308e2a877c33a
 
 .rating-star{
     width: 24px;
