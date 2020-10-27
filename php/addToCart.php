@@ -21,8 +21,9 @@
         $res = "CART_ADD";
     }
 
+    mysqli_close($conn);
+
     if( ($res == "CART_ADD" || $res == "CART_UPDATE") && isset($_POST["type"]) && $_POST["type"] == 'BUY_NOW'){
         header('Location: ../pages/shoppingCart.php');
     }
-    mysqli_close($conn);
 ?>

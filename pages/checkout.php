@@ -80,7 +80,7 @@
                 <div class="checkout-content content">
                     <div class="customer-details">
                         <h2>Customer Details</h2>
-                        <form method="POST" action="../php/placeOrder.php">
+                        <form method="POST" action="../php/placeOrder.php" id="place-order-form" onsubmit="return handleSubmit()">
                             <table class="customer-details-table">
                                 <tr>
                                     <td class="label">Full Name</td>
@@ -133,7 +133,6 @@
                             <span></span>
                             <div class="modal-content">
                                 <div class="modal-header-success">
-                                    <span class="close" id="close">&times;</span>
                                     <h2>Payment Successful !!</h2>
                                 </div>
                                 <div class="modal-body">
@@ -149,7 +148,6 @@
                             <span></span>
                             <div class="modal-content">
                                 <div class="modal-header-unsuccess">
-                                    <span class="close" id="close">&times;</span>
                                     <h2>Payment Unsuccessful !!</h2>
                                 </div>
                                 <div class="modal-body">
@@ -158,6 +156,7 @@
                                 <div class="modal-footer-unsuccess">
                                     <p>There's something wrong with the payment, please try again!</p>
                                 </div>
+                                <button class="btn btn-outline-primary" style="margin:auto;display: block; margin-top: 12px;"> <a href="../pages/">Back to Homepage </a></button>
                             </div>
                         </div>
                                                 
@@ -180,23 +179,39 @@
                 if (check === 'false')
                     modal2.style.display = "block";
                 
-                span.onclick = function() {
-                    modal1.style.display = "none";
-                    modal2.style.display = "none";
-                }
-
-        
-                window.onclick = function(event) {
-                    if (event.target == modal1 || event.target == modal2) {
-                        modal1.style.display = "none";
-                        modal2.style.display = "none";
-                    }
-                }
-
-                
             </script>
         <?php include '../components/footer.php' ?>
     </body>
+
+    <script src="../js/validateForm.js"></script>
+    <script>
+    function handleSubmit(){
+        let form = document.querySelector('#place-order-form')
+
+        try {
+            let form = document.querySelector('#place-order-form')
+            let fullName = form.querySelector('input[name="fullName"]').value
+            let email = form.querySelector('input[name="email"]').value
+            let phoneNumber = form.querySelector('input[name="phoneNumber"]').value
+            let address = form.querySelector('input[name="address"]').value
+            let nameOnCard = form.querySelector('input[name="nameOnCard"]').value
+            let creditCardNumber = form.querySelector('input[name="creditCardNumber"]').value
+            let creditCardExpiresOn = form.querySelector('input[name="creditCardExpires"]').value
+            let cvv = form.querySelector('input[name="cvv"]').value
+
+            let isValidated = validatePlaceOrder({
+                fullName, email, phoneNumber, address, nameOnCard, creditCardNumber, creditCardExpiresOn, cvv
+            })
+            console.log('isValidated:' ,isValidated)
+            return isValidated
+        }
+        catch(err) {
+            console.log(err)
+            return false
+        }
+        return false
+    }
+    </script>
 
 </html>
 

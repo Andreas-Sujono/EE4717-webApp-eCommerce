@@ -26,8 +26,8 @@
     <body>
     
         <?php 
-            include('../components/nav.php');
             include("../php/cart_and_list.php"); 
+            include('../components/nav.php');
             include("../php/connect.php");
             $query = "SELECT * FROM Product where productId='".$_GET['productId']."'";
             $result = mysqli_query($conn, $query);
@@ -62,9 +62,11 @@
                                 <input type="hidden" value="1" name="quantity" id="qty" />
                                 <input type="submit" class="btn btn-outline-primary" value="Add to cart" />
                             </form>
-                            <!-- <button type="button" class="btn btn-outline-primary">Add to cart</button> -->
                             <form method="post">
-                                <button type="button" class="btn btn-success btn-block">Buy Now</button>
+                                <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
+                                <input type="hidden" value="BUY_NOW" name="type" />
+                                <input type="hidden" value="1" name="quantity" id="qty" />
+                                <input type="submit" class="btn btn-success btn-block" value="Buy Now" />
                             </form>
                         </div>
                         <form method="post">

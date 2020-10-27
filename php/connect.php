@@ -11,4 +11,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+if(session_id() == ''){
+    //session has not started
+    session_start();
+}
+
 ?>
