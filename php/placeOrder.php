@@ -27,15 +27,65 @@
     
         if(mysqli_affected_rows($conn)>0){
             $success = 'true';
+
+            $sql = "SELECT * from `Order` WHERE orderId = ".$orderId;
+            $result = mysqli_query($conn, $sql);
+            $orderDetail = mysqli_fetch_assoc($result);
+
+            $sql = "SELECT * from `OrderItems` WHERE orderId = ".$orderId;
+            $result = mysqli_query($conn, $sql);
+            $orderItems = mysqli_fetch_assoc($result);
+
+            $orderItemsRow = '';
+            $total=0;
+            while($row = mysqli_fetch_assoc($orderItems)){
+                $total+=$row['price']*$row['quantity'];
+                $orderItemsRow .= '
+                <tr>
+                    <td class="product-col"> 
+                        <span>'. $row['name'] .'<span>
+                    </td>
+                    <td>$'. $row['price'] .'</td>
+                    <td>'. $row['quantity'] .'</td>
+                    <td>$'. ($row['price']*$row['quantity']) .'</td>
+                </tr>';
+            } 
+
             //send email
             $to      = 'f32ee@localhost';
-            $subject = 'the subject';
+            $subject = 'Your Order is successful';
             $message = '
-                <h1>Your order is successfull</h1>
+                <html>
+                    <head>Order is successful</head>
+                    <body>
+                        <h1> Your order is successful </h1>
+
+                        <table class="order-summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                    <th>Subtotal Price</th>
+                                </tr>   
+                            </thead>
+                            <tbody>' . $orderItemsRow . '</tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="total-price">Order Total: <span>'. $total .'</span></td>
+                                </tr>   
+                            </tfoot>
+                        </table>
+
+                    </body>
+                </html>
             ';
+            // set content-type to send HTML email
             $headers = 'From: f32ee@localhost' . "\r\n" .
                 'Reply-To: f32ee@localhost' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
+                'X-Mailer: PHP/' . phpversion() . "\r\n" .
+                "MIME-Version: 1.0" . "\r\n".
+                "Content-type:text/html;charset=UTF-8";
 
             mail($to, $subject, $message, $headers,'-ff32ee@localhost');
         }

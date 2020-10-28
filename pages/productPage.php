@@ -102,6 +102,46 @@
                     </div>
                     
                 </div>
+
+                <hr/>
+
+                <div class="product-recommendation">
+                    <h1 style="margin-top:20px; margin-bottom:24px;">Similar Product</h1>
+                    <div class="flex-row justify-content-around ">
+                    <?php 
+                        $query = "SELECT * FROM `Product` WHERE category='" .$row["category"] . "'AND productId != '". $_GET["productId"] ."'order by productId desc limit 4";
+                        $result = $conn->query($query);
+                        while($row = $result->fetch_assoc()){
+                            echo '
+                            <div class="card index-product">
+                                
+                                    <img src= "'.$row['image'].'" alt="..." class="card-img">
+                                
+                                <div class="card-body">
+                                <a href="../pages/productPage.php?productId='. $row['productId']. '" class="product-link">
+                                    <h5 class="card-title"> '.$row['name'].' </h5>
+                                    </a>
+                                    <div>
+                                        <p class="card-text product-price">$'.$row['price'].'</p>
+                                        <form method="post">
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <input type="hidden" value="cart" name="type" />
+                                            <input type="submit" class="btn btn-success btn-block" value="Add to cart"/>
+                                        </form>
+                                        <form method="post">
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <input type="hidden" value="list" name="type" />
+                                            <input type="submit" class="btn btn-outline-warning btn-block wishlist-button" value="Add to wishlist"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> ' ;
+                        }
+                        
+                    ?>
+                    </div>
+                </div>
+
                 <?php $conn->close(); ?>
             </div>
             <script src="../js/index.js" ></script>
