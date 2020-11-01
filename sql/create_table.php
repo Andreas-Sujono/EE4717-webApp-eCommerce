@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "f32ee";
+$password = "f32ee";
 $dbname = "f32ee";
 
 // Create connection
@@ -24,6 +24,7 @@ $sql .= "CREATE TABLE `CustomerDetails` (
     fullName varchar(128),
     email varchar(128),
     phoneNumber varchar(30),
+    address varchar(256),
     dateOfBirth Date,
     FOREIGN KEY (accountId)
         REFERENCES Account(accountId)

@@ -6,7 +6,7 @@
             <div>Phone:+65 83066472</div>
         </div>
         <div class="footer-right-content">
-            <div>Followed us on social media</div>
+            <div>Follow us on social media</div>
             <div class="social-media">
                 <a href="https://www.facebook.com/" target="__blank"><img src="https://1.bp.blogspot.com/-WSdqH3gMHDk/U-xndvvQYrI/AAAAAAAABwg/9OLHbIjiTF8/s1600/facebook%2Blogo%2Bpng%2Btransparent%2Bbackground.png" alt="facebook"/></a>
                 <a href="https://www.instagram.com/" target="__blank"><img src="https://cdn.icon-icons.com/icons2/1826/PNG/512/4202090instagramlogosocialsocialmedia-115598_115703.png" alt="instagram"/></a>

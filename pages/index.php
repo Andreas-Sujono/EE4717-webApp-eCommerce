@@ -8,6 +8,7 @@
     </head>
 
     <body>
+
         <?php include '../components/nav.php' ?>
         <?php 
             include '../php/connect.php'; 
@@ -18,7 +19,6 @@
             {
                 $id = $_POST['id'];
                 $uid = $_SESSION['custId'];
-                $sql = "";
                 if($_POST['type'] == "cart")
                 {
                     include "../php/addToCart.php";   
@@ -33,30 +33,27 @@
         ?>
         <div class="container">
             <div class="slideshow-container">
-
                 <div class="mySlides fade">
                     <img src="../images/new-ce-exclusive-desktop.webp" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <img src="../images/new-ncl-note20-banner-desktop.webp" style="width:100%">
-                    <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <img src="../images/tab-a7-shop-offer-desktop.webp" style="width:100%">
-                    <div class="text">Caption Three</div>
                 </div>
+            </div>
 
-                </div>
-                <br>
+            <br>
 
-                <div style="text-align:center">
+            <div style="text-align:center">
                 <span class="dot"></span> 
                 <span class="dot"></span> 
                 <span class="dot"></span> 
             </div>
+
             <h1 class="display border-bottom heading" >Best Selling Products</h1>
             
             <div class="flex-row justify-content-around ">
@@ -75,7 +72,7 @@
                                 <h5 class="card-title"> '.$row['name'].' </h5>
                                 </a>
                                 <div>
-                                    <p class="card-text">$'.$row['price'].'</p>
+                                    <p class="card-text product-price">$'.$row['price'].'</p>
                                     <form method="post">
                                         <input type="hidden" value="'.$row['productId'].'" name="id" />
                                         <input type="hidden" value="cart" name="type" />
@@ -84,7 +81,7 @@
                                     <form method="post">
                                         <input type="hidden" value="'.$row['productId'].'" name="id" />
                                         <input type="hidden" value="list" name="type" />
-                                        <input type="submit" class="btn btn-outline-warning btn-block" value="Add to wishlist"/>
+                                        <input type="submit" class="btn btn-outline-warning btn-block wishlist-button" value="Add to wishlist"/>
                                     </form>
                                 </div>
                             </div>

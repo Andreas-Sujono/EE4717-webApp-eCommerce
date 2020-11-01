@@ -29,8 +29,12 @@
 }
 
 
+.checkout-page .order-summary-table .product-col{
+  display: flex;
+  align-items: center;
+}
 .checkout-page .order-summary-table .product-col img{
-    width: 50px;
+    width: 100px;
     vertical-align: middle;
     margin-right: 16px;
 }

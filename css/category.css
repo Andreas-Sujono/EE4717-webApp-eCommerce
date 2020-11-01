@@ -34,7 +34,7 @@
     flex-direction: column;
     gap:12px;
 }
-.category-page .category-content .product-action .product-price{
+.category-page .category-content .product-price{
     font-size: 22px;
     font-weight: bold;
 }
@@ -47,11 +47,3 @@
     font-size: 16px;
     background-color: #3DA300;
 }
-.category-page .category-content .product-action button.wishlist-button{
-    background-color: transparent;
-    border: 1px solid grey;
-    color: black;
-}
-
-
-

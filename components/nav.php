@@ -1,103 +1,6 @@
 <?php
     include '../php/connect.php';
-
-    session_start();
-    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type']) ){
-        $username = $conn->real_escape_string($_POST['username']);
-        $password = $conn->real_escape_string($_POST['password']);
-        $password = md5($password);
-        $showModal = null;
-
-        //handle login here
-        if($_POST['type'] == 'login'){
-            $query = 'SELECT * from Account '
-           ."WHERE username='$username' "
-           ." AND password='$password'";
-
-           $result = $conn->query($query);
-           if ($result->num_rows >0 ) //if login is successfull
-            {
-                $row = $result->fetch_assoc();
-                $accountId = $row['accountId'];   
-                
-                $_SESSION['username'] = $username;    
-                $_SESSION['accountId'] = $accountId;
-
-                $query = 'SELECT * from CustomerDetails '
-                ."WHERE accountId='$accountId'";
-                $result = $conn->query($query);
-                $row = $result->fetch_assoc();
-                $custId = $row['custId']; 
-                
-                $_SESSION['custId'] = $custId;
-            }
-            else{ //if login is failed
-                $errorMessage = 'Invalid username or password';
-                $showModal = 'login-modal';
-                $prev_username = $username;
-                $prev_password = $_POST['password'];
-            }
-
-        }
-        //handle signup here
-        else if($_POST['type'] == 'signup'){
-            //validate first
-            $isValidated = true;
-            if ($_POST['password'] !== $_POST['confirmPassword'] ){
-                $errorMessage = 'Password is not matched';
-                $showModal = 'signup-modal';
-                $isValidated = false;
-            }
-            if(!isset($_POST['fullName']) || !isset($_POST['email']) || !isset($_POST['email']) || !isset($_POST['dateOfBirth']) || !isset($_POST['confirmPassword'])){
-                $errorMessage = 'Please fill all the field';
-                $showModal = 'signup-modal';
-                $isValidated = false;
-            } 
-
-            if(!$isValidated){
-                $prev_fullName = $_POST['fullName'];
-                $prev_username = $username;
-                $prev_password = $_POST['password'];
-                $prev_email = $_POST['email'];
-                $prev_dateOfBirth= $_POST['dateOfBirth'];
-                $prev_confirmPassword = $_POST['confirmPassword'];
-            }
-
-            //signup account to database
-            if($isValidated){
-                $email = $_POST['email'];
-                $fullName = $_POST['fullName'];
-                $dateOfBirth = $_POST['dateOfBirth'];
-
-                $query = "INSERT INTO Account (username, password) 
-                        VALUES ('$username', '$password')";
-                $result = $conn->query($query);
-
-                $query2 = "SELECT * from Account where username = '$username'";
-                $result = $conn->query($query2);
-                $row = $result->fetch_assoc();
-                $accountId = $row['accountId'];
-
-                $query3 = "INSERT INTO CustomerDetails(accountId, fullName, email, phoneNumber, dateOfBirth)
-                VALUES ( $accountId, '$fullName', '$email', 'test' , '$dateOfBirth' )";
-                $result = $conn->query($query3);
-
-                //register a session here
-                $_SESSION['username'] = $username;    
-                $_SESSION['accountId'] = $accountId;    
-
-                $query = 'SELECT * from CustomerDetails '
-                ."WHERE accountId='$accountId'";
-                $result = $conn->query($query);
-                $row = $result->fetch_assoc();
-                $custId = $row['custId']; 
-                
-                $_SESSION['custId'] = $custId;
-            }
-            
-        }
-    }
-
+    include '../php/auth.php';
     $conn->close();
 ?>
 
@@ -167,7 +70,7 @@
             <span class="close">&times;</span>
             <div class="modal-body">
                 <h1>Login</h1>
-                <form method="POST">
+                <form method="POST" onsubmit="return handleSubmitLogin()">
                     <div class="input-group">
                         <input 
                             type="text" 
@@ -198,14 +101,14 @@
     </div>
 
 
-    <!-- login Modal -->
+    <!-- signup Modal -->
     <div id="signup-modal" class="signup-modal modal">
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-body">
                 <h1>Sign Up</h1>
-                <form method="POST">
+                <form method="POST" onsubmit="return handleSubmitSignup()">
                     <div class="input-group">
                         <input 
                             type="text" 
@@ -277,4 +180,34 @@
         else if($showModal == 'signup-modal')
             echo '<script> triggerModalById("signup-modal") </script>';
     ?>
+    <script src="../js/validateForm.js"></script>
+    <script>
+    function handleSubmitLogin(){
+        let form = document.querySelector('.login-modal form')
+        let username = form.querySelector('input[name="username"]').value
+        let password = form.querySelector('input[name="password"]').value
+        let errorDom = form.querySelector('.error-message')
+
+        let isValidated = validateLogin({
+            username, password, errorDom
+        })
+        return isValidated
+    }
+
+    function handleSubmitSignup(){
+        let form = document.querySelector('.signup-modal form')
+        let fullName = form.querySelector('input[name="fullName"]').value
+        let username = form.querySelector('input[name="username"]').value
+        let password = form.querySelector('input[name="password"]').value
+        let email = form.querySelector('input[name="email"]').value
+        let dateOfBirth = form.querySelector('input[name="dateOfBirth"]').value
+        let confirmPassword = form.querySelector('input[name="confirmPassword"]').value
+
+        let errorDom = form.querySelector('.error-message')
+
+        let isValidated = validateSignup({fullName, email, username, dateOfBirth, password, confirmPassword, errorDom})
+        console.log('isValidated', isValidated)
+        return isValidated
+    }
+    </script>
 </nav>

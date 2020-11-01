@@ -21,7 +21,6 @@
                     <h1><?php echo ucfirst($productCategory); ?></h1>
                 </div>
                 <div class="category-content content">
-
                     <?php
                         include "../php/cart_and_list.php"; 
                         include '../php/connect.php';
@@ -54,23 +53,17 @@
                                     
                                     <div class="product-action">
                                         <div class="product-price">$'. $row['price'] .'</div>
-
                                         <form method="post">
-                                        <input type="hidden" value="'.$row['productId'].'" name="id" />
-                                        <input type="hidden" value="cart" name="type" />
-                                        <input type="submit" class="btn btn-success btn-block" value="Add to cart"/>
+                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
+                                            <input type="hidden" value="cart" name="type" />
+                                            <input type="submit" class="btn btn-success btn-block" value="Add to cart"/>
                                         </form>
                                         <form method="post">
                                             <input type="hidden" value="'.$row['productId'].'" name="id" />
                                             <input type="hidden" value="list" name="type" />
-                                            <input type="submit" class="wishlist-button" value="Add to wishlist"/>
+                                            <input type="submit" class="btn btn-block btn-outline-warning wishlist-button" value="Add to wishlist"/>
                                         </form>
-                                        <!--<button>Add to cart</button>
-                                        <button class="wishlist-button">Add to wishlist</button>
-                                        <form action="../php/addToWishlist.php" method="post">
-                                            <input type="hidden" value="'.$row['productId'].'" name="id" />
-                                            <button type="submit" class="wishlist-button" >Add to wishlist</button>
-                                        </form> -->
+
                                     </div>
                                 </div>
                                 <hr/>';
