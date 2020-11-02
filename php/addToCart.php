@@ -16,7 +16,7 @@
         }
     } else {
         $sql = "insert into `Order` (status,custId) values (0, $uid);";
-        $sql .= "insert into OrderItems (orderId, productId, quantity) values (LAST_INSERT_ID(), $id, $quantity)";
+        $sql .= "insert into OrderItems (orderId, productId, quantity) values (LAST_INSERT_ID(), $id, $quantity)"; //LAST_INSERT_ID() gives the order id inserted into order in the previous statement
         mysqli_multi_query($conn, $sql);
         $res = "CART_ADD";
     }

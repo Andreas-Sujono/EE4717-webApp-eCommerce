@@ -29,7 +29,7 @@
                 }
                 
             }
-            unset($_POST['id']); 
+            unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
         ?>
         <div class="container">
             <div class="slideshow-container">
@@ -67,7 +67,7 @@
                             
                                 <img src= "'.$row['image'].'" alt="..." class="card-img">
                             
-                            <div class="card-body">
+                            <div class="card-body"> 
                              <a href="../pages/productPage.php?productId='. $row['productId']. '" class="product-link">
                                 <h5 class="card-title"> '.$row['name'].' </h5>
                                 </a>
@@ -87,6 +87,7 @@
                             </div>
                         </div> ' ;
                     }
+                    //product id accessed by product page using get variable present in the hyperlink 
                 ?>
             </div>
             <?php $conn->close(); ?>
@@ -101,7 +102,7 @@
                                         break;
                 case "SUCCESS" :    alert("Added to wishlist");
                                     break;
-                case "UNSUCCESS" :   alert("Could not add");
+                case "UNSUCCESS" :   alert("Could not add"); //not used generally 
                                     break;
                 case "CART_ADD" :   alert("Added to cart");
                                     break;                    
