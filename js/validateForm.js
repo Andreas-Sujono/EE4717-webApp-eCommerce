@@ -1,3 +1,4 @@
+
 const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, creditCardNumber, creditCardExpiresOn, cvv}) => {
     let isValidated = true
     let errorMessage = ''
@@ -11,13 +12,14 @@ const validatePlaceOrder = ({fullName, email, phoneNumber, address, nameOnCard, 
         isValidated = false
         errorMessage = 'Name can only contain alphabet character'
     }
+
     //check for email field
     else if(!(/^[a-zA-Z-.0-9]+@([a-zA-Z0-9]+\.){1,3}[a-zA-Z0-9]{2,3}$/.test(email))){
         isValidated = false
         errorMessage = 'Please input a correct email'
     }
      //check for credit card number
-     else if(!(/\d+$/.test(creditCardNumber))){
+     else if(!(/\d{16}$/.test(creditCardNumber))){
         isValidated = false
         errorMessage = 'Please input a correct credit card number'
     }
@@ -67,6 +69,13 @@ const validateSignup = ({fullName, email, username, dateOfBirth, password, confi
         isValidated = false
         errorMessage = 'Name can only contain alphabet character'
     }
+
+    //validate user name
+    else if(!(/^([a-zA-Z]|[a-zA-Z][a-zA-Z ]*[a-zA-Z])$/.test(username))){
+        isValidated = false
+        errorMessage = 'username can only contain alphabet character'
+    }
+    
     //check for email field
     else if(!(/^[a-zA-Z-.0-9]+@([a-zA-Z0-9]+\.){1,3}[a-zA-Z0-9]{2,3}$/.test(email))){
         isValidated = false
