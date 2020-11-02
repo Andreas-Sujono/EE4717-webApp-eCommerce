@@ -27,11 +27,13 @@ function setLimit(v, target) {
   v = Number.isNaN(v) ? 0 : v;
   target.value = v == 0 ? "" : v;
   document.getElementById('qty').value = v < 0 ? 1 : v;
+  document.getElementById('qt2').value = v < 0 ? 1 : v;
 }
 
 function change(v) {
   let element = document.getElementById('count');
   element.value = parseInt(element.value);
   document.getElementById('qty').value = element.value;
+  document.getElementById('qty2').value = element.value;
 }
 

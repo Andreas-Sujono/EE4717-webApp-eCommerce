@@ -51,7 +51,7 @@
                             <form method="post">
                                 <input type="hidden" value="<?php echo $row['productId']; ?>" name="id" />
                                 <input type="hidden" value="BUY_NOW" name="type" />
-                                <input type="hidden" value="1" name="quantity" id="qty" />
+                                <input type="hidden" value="1" name="quantity" id="qty2" />
                                 <input type="submit" class="btn btn-success btn-block" value="Buy Now" />
                             </form>
                         </div>
