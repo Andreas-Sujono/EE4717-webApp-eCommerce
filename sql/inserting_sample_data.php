@@ -16,11 +16,11 @@ $password_hashed = md5($password);
 /* comment necessary code below if you have run this cript before */
 
 $sql = "INSERT INTO Account (username, password)
-VALUES ('test', '$password_hashed');";
+ VALUES ('test', '$password_hashed');";
 
 $password_hashed = md5('test2');
 $sql .= "INSERT INTO Account (username, password)
-VALUES ('test2', $password_hashed);";
+VALUES ('test2', '$password_hashed');";
 
 $sql .= "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth, address)
 VALUES ( (SELECT accountId from Account where username = 'test'), 'test', 'test@gmail.com', '83066382', '2000-08-01', '');";

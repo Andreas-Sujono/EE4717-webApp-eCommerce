@@ -15,10 +15,13 @@ if (!$conn) {
 $query3 = "INSERT INTO `CustomerDetails` (accountId, fullName, email, phoneNumber, dateOfBirth)
 VALUES ( 1, 'test, 'test', 'test' , '2020-10-01' )";
 
-$query = "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth)
-VALUES ( 1, 'test', 'test@gmail.com', 'test', '2020-10-01');";
+$sql = "update CustomerDetails set fullName='sdsd', email='sdsds@test.com', phoneNumber='12121', address='tesfdfs' where custId = '1'";
 
-$result = $conn->query($query3);
+if (mysqli_query($conn, $sql)) {
+    echo "success";
+} else {
+    echo "Error creating database: " . mysqli_error($conn);
+}
 
 mysqli_close($conn);
 ?>

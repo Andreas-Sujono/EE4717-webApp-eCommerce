@@ -9,18 +9,6 @@
         <link rel="stylesheet" href="../css/nav.css"/>
         <link rel="stylesheet" href="../css/footer.css"/>
         
-        <script>
-            function select(){
-                document.getElementById('selected').style.display='block';
-                document.getElementById('not-selected').style.display='none';
-                document.getElementById("wishlist__text").innerHTML = "Added to wishlist"
-            }   
-            function unselect(){
-                document.getElementById('selected').style.display='none';
-                document.getElementById('not-selected').style.display='block';
-                document.getElementById("wishlist__text").innerHTML = "Add to wishlist"
-            }        
-        </script>
     </head>
 
     <body>
@@ -50,9 +38,7 @@
                             <div class="flex-row" style="align-items: center;">
 
                                 <label class="input-group-text" style="margin-right:5px">Quantity</label>
-                                <input type="number" min="0" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
-                                <div class="upcount" id="upcount" onclick="increase()" style="margin-right:5px"><button>+</button></div>
-                                <div class="downcount" id="downcount" onclick="decrease()" style="margin-right:5px"><button>-</button></div>
+                                <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
                             </div>
                         </div>
                         <div class="buttons flex-row">
@@ -80,11 +66,11 @@
                 </div>
                 <div class="information">
                     <div class="information__heading">Product Specifications</div>
-                    <?php $prod = json_decode($row['specification']);?>
+                    <?php $prod = json_decode($row['specification']); //associative array for the product specifications ?>
                     <table class="table">
                         <tbody>
                             <?php
-                                foreach($prod as $key => $value)
+                                foreach($prod as $key => $value)    //displaying the specifications of that product 
                                 {
                                     echo "
                                         <tr>
@@ -98,7 +84,7 @@
                     </table>
                     <div class="information__heading">Product Descriptions</div>
                     <div class="information__description">
-                        <?php echo nl2br($row['description']); ?>
+                        <?php echo nl2br($row['description']);    //nl2br : new line to line break<br> ?>
                     </div>
                     
                 </div>

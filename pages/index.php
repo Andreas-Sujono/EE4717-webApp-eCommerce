@@ -19,7 +19,6 @@
             {
                 $id = $_POST['id'];
                 $uid = $_SESSION['custId'];
-                $sql = "";
                 if($_POST['type'] == "cart")
                 {
                     include "../php/addToCart.php";   
@@ -36,17 +35,14 @@
             <div class="slideshow-container">
                 <div class="mySlides fade">
                     <img src="../images/new-ce-exclusive-desktop.webp" style="width:100%">
-                    <div class="text">Caption Text</div>
                 </div>
 
                 <div class="mySlides fade">
                     <img src="../images/new-ncl-note20-banner-desktop.webp" style="width:100%">
-                    <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <img src="../images/tab-a7-shop-offer-desktop.webp" style="width:100%">
-                    <div class="text">Caption Three</div>
                 </div>
             </div>
 

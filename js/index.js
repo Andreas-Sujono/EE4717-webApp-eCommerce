@@ -2,6 +2,9 @@ var slideIndex = 0;
 let slideDuration = 4000
 showSlides();
 
+//initially set all slides to display none and all dots to be inactive, then extract one slide and dot at a time 
+//and display the slide, append active to the classname of dot
+//setTimeout, calls ShowSlide function after 4000 ms
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -16,7 +19,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, slideDuration); // Change image every slideDuration seconds
+  setTimeout(showSlides, slideDuration); // Change image every slideDuration seconds, calls slideshow function after 4000 ms
 }
 
 function setLimit(v, target) {
@@ -26,15 +29,5 @@ function setLimit(v, target) {
   document.getElementById('qty').value = v < 0 ? 1 : v;
 }
 
-function increase() {
-  let element = document.getElementById('count');
-  element.value = parseInt(element.value) + 1;
-  document.getElementById('qty').value = element.value;
-}
 
-function decrease() {
-  let element = document.getElementById('count');
-  element.value = parseInt(element.value) - 1 <= 0 ? 1 : parseInt(element.value) - 1;
-  document.getElementById('qty').value = element.value;
-}
 
