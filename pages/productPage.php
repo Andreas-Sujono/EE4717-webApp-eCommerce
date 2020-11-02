@@ -38,7 +38,7 @@
                             <div class="flex-row" style="align-items: center;">
 
                                 <label class="input-group-text" style="margin-right:5px">Quantity</label>
-                                <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" style="margin-right:5px"/>
+                                <input type="number" min="1" id="count" value="1" class="count" onkeyup="setLimit(this.value, this)" onchange = "change(this.value)" style="margin-right:5px"/>
                             </div>
                         </div>
                         <div class="buttons flex-row">

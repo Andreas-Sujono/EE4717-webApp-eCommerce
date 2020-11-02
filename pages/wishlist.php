@@ -23,7 +23,7 @@
                         include('../php/connect.php');
                         
                         if(!isset($_SESSION['custId']))
-                            echo "login first";
+                            echo "Please Login";
                         else {
                             $custId = $_SESSION['custId'];
                             $sql = "SELECT * FROM Wishlist, Product WHERE Wishlist.productId=Product.productId and $custId=custId";
