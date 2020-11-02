@@ -1,9 +1,8 @@
 <html>
     <head>
-        <title>Homepage</title>
+        <title></title>
     </head>
     <body>
-        <h1>Homepage</h1>
-        <a href="./pages/index.php">Go to website</a>
+        <a href="./pages/index.php">Go to our website</a>
     </body>
 </html>
