@@ -33,29 +33,6 @@
         if(mysqli_affected_rows($conn)>0){
             $success = 'true';
 
-            // $sql = "SELECT * from `Order` WHERE orderId = ".$orderId;
-            // $result = mysqli_query($conn, $sql);
-            // $orderDetail = mysqli_fetch_assoc($result);
-
-            // $sql = "SELECT * from `OrderItems` WHERE orderId = ".$orderId;
-            // $result = mysqli_query($conn, $sql);
-            // $orderItems = mysqli_fetch_assoc($result);
-
-            // $orderItemsRow = '';
-            // $total=0;
-            // while($row = mysqli_fetch_assoc($orderItems)){
-            //     $total+=$row['price']*$row['quantity'];
-            //     $orderItemsRow .= '
-            //     <tr>
-            //         <td class="product-col"> 
-            //             <span>'. $row['name'] .'<span>
-            //         </td>
-            //         <td>$'. $row['price'] .'</td>
-            //         <td>'. $row['quantity'] .'</td>
-            //         <td>$'. ($row['price']*$row['quantity']) .'</td>
-            //     </tr>';
-            // } 
-
             //send email
             $to      = 'f32ee@localhost';
             $subject = 'Your Order is successful';

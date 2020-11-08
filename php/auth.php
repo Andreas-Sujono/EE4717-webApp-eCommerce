@@ -84,7 +84,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['type
             $accountId = $row['accountId'];
 
             $query3 = "INSERT INTO CustomerDetails(accountId, fullName, email, phoneNumber, dateOfBirth)
-            VALUES ( $accountId, '$fullName', '$email', 'test' , '$dateOfBirth' )";
+            VALUES ( $accountId, '$fullName', '$email', '' , '$dateOfBirth' )";
             $result = $conn->query($query3);
 
             //register a session here

@@ -17,15 +17,6 @@ for(let i = 0 ; i < btns.length; i++){
     modal.style.display = "block";
     currentModal = modal
   })
-  
-  // btn.addEventListener('custom-click', function() {
-  //   if(currentModal){ //make sure only 1 modal is active
-  //     currentModal.style.display = "none";
-  //   }
-  //   modal.style.display = "block";
-  //   currentModal = modal
-  // })
-
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
